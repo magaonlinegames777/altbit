@@ -1,0 +1,28 @@
+.btc{
+    background-image: url('../img/coins/BTC.png');
+}
+.eth{
+    background-image: url('../img/coins/ETH.png');
+}
+.sol{
+    background-image: url('../img/coins/SOL.png');
+}
+
+.bnb{
+    background-image: url('../img/coins/BNB.png');
+}
+.ton{
+    background-image: url('../img/coins/TON.png');
+}
+.trx{
+    background-image: url('../img/coins/TRX.png');
+}
+.usdt{
+    background-image: url('../img/coins/USDT.png');
+}
+.usdc{
+    background-image: url('../img/coins/USDC.png');
+}
+.wbeth{
+    background-image: url('../img/coins/WBETH.png');
+}
