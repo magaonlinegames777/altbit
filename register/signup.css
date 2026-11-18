@@ -1,0 +1,220 @@
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+.mcbox_2{
+    float: left;
+    background-color: #000000;
+    width: 50%;
+    /* margin-left: 1%; */
+    height: 100%;
+    color: white;
+}
+
+.message_bx{
+    text-align: center;
+    padding-top: 31px;
+}
+.message_bx p{
+    margin-top: 10px;
+}
+.message_img{
+    /* border: 1px solid red; */
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: 323px;
+    background-image: url('phone2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#loginsection{
+    background-color: white;
+}
+.loginbx{
+    padding: 16px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 444px;
+    margin: auto;
+    background-color: white;
+    color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.lgbx{
+    width: 95%;
+    /* background-color: red; */
+}
+#register_inputsbx .errorMessage{
+    margin-bottom: 17px;
+}
+.loginbx span{
+    /* display: block; */
+}
+.loginlblbx a{
+    text-decoration: none;
+}
+.loginbx span a{
+    color: #0e0eb9;
+    cursor: pointer;
+}
+.loginInputBx{
+    margin-top: 18px;
+}
+.loginInputBx span{
+    border: 1px solid grey;
+    display: block;
+    position: relative;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 13px;
+}
+.loginInputBx i{
+    margin-left: 10px;
+    position: relative;
+    top: 11px;
+    color: #6a6a6a;
+    font-size: 17px;
+}
+.loginInputBx input{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: none;
+    border-radius: 8px;
+    width: 82%;
+}
+
+.logsRequirement{
+    display: block;
+    border: none!important;
+    margin-bottom: 40px;
+    margin-top: 7px;
+}
+.logsRequirement span{
+    background-color: #d1d1d1;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+.captcha{
+    margin-top: 30px;
+}
+.captchaBX{
+    border: 1px solid grey;
+    position: relative;
+    border-radius: 10px;
+    display: block;
+}
+.captchaBX input{
+    height: 40px;
+    width: 66%;
+    padding-left: 13px;
+    border-radius: 10px;
+}
+.captchalbl{
+    width: 100px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    height: 62%;
+    /* background-image: url('../assets/img/captcha/c82787.png'); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid #8080803d;
+}
+.signBtns{
+    margin-top: 20px;
+}
+.signBtns a{
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(to right, #f49431, #d35400);
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.promoReferal{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    width: 167px;
+}
+
+#promo_txt{
+    margin-left: 18px;
+    font-size: 13px;
+}
+.promoReferal span{
+    display: inline-block;
+    font-size: 13px;
+
+}
+.promoReferal i{
+    position: absolute;
+    right: 6px;
+    top: 8px;
+}
+#promosymbol{
+    left: 8px;
+    font-size: 15px;
+    top: 13px;
+}
+.promoInputBX, .promoReferralInputBX{
+    margin-top: 1px;
+}
+.promoInputBX input, .promoReferralInputBX input{
+    padding: 4px;
+    margin-left: 11px;
+    font-size: 12px;
+}
+
+.terms_conditions{
+    margin-top: 10px;
+}
+.terms_conditions span{
+    display: block;
+    position: relative;
+}
+.errorMessage{
+    color: red;
+    margin-top: 12px;
+}
+
+/* for mobile */
+@media screen and (max-width: 750px) 
+and (min-width: 0px){
+    #mcbox_2-1{
+        display: none;
+    }
+    .mcbox_2{
+        width: 100%;
+    }
+    #loginsection{
+        margin-top: 10%;
+    }
+}
+
+/* all things equal */
+.mainContents {
+    /* height: 400px; */
+    background-color: white;
+    overflow: auto;
+    height: 93vh;
+}
+.no-focus {
+  border: none; /* Remove border */
+  outline: none; /* Remove focus outline */
+}
+.no-focus-b {
+    outline: none; /* Remove focus outline */
+}

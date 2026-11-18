@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/loader.css">
+    <link rel="stylesheet" href="signup.css">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+    <title>Buy & Sell Bitcoin, Ethereum | Cryptocurrency Exchange | Tonexbit</title>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+</head>
+
+
+<body>
+    <div class="glassLoader hide">
+        <div id="loader_element">
+
+            <div id="preloader">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        
+    </div>
+<header>
+        <div class="logo_section">
+            <span id="logoimg"></span>
+            <span id="logoname" class="poller-one-regular">altbit</span>
+        </div>
+
+        <div class="menu_items" id="menu_mobi_items">
+            <a href="">
+                <span class="menuItems_img">
+                    <svg style="-webkit-box-flex: 0; -webkit-flex: none; -ms-flex: none; flex: none; margin-right: 15px;" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <rect xmlns="http://www.w3.org/2000/svg" x="2" y="14" width="4" height="10" fill="#474752"></rect>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="18" y="7" width="4" height="17" fill="#474752"></rect>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="10" y="12" width="4" height="12" fill="#474752"></rect>
+                    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M20 4C21.1046 4 22 3.10457 22 2C22 0.895431 21.1046 0 20 0C18.8954 0 18 0.895431 18 2C18 2.14366 18.0151 2.28377 18.0439 2.41884L13.5084 4.68671C13.1418 4.26593 12.6019 4 12 4C10.9005 4 10.0083 4.88718 10.0001 5.98471L5.75787 7.04531C5.41897 6.42261 4.75884 6 4 6C2.89543 6 2 6.89543 2 8C2 9.10457 2.89543 10 4 10C5.09937 10 5.99157 9.11297 5.99994 8.01557L10.2423 6.95494C10.5812 7.5775 11.2413 8 12 8C13.1046 8 14 7.10457 14 6C14 5.85627 13.9848 5.71608 13.956 5.58094L18.4914 3.31313C18.8581 3.73401 19.398 4 20 4Z" fill="#ffc014"></path>
+                    </svg>
+                </span>
+
+                <span class="menuItems_lbl">Trading</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+
+            <a href="">
+                <span class="menuItems_img">
+                    <svg style="-webkit-box-flex: 0; -webkit-flex: none; -ms-flex: none; flex: none; margin-right: 15px;" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_12306_192926)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0H4V24H20V0ZM17 5H7V7H17V5ZM7 9H16V11H7V9ZM17 13H7V15H17V13Z" fill="#474752"></path>
+                        <path d="M0 18H3V24C1.34315 24 0 22.6569 0 21V18Z" fill="#474752"></path>
+                        <circle cx="20" cy="20" r="5" fill="#2D2D32"></circle>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 24C22.2091 24 24 22.2091 24 20C24 17.7909 22.2091 16 20 16C17.7909 16 16 17.7909 16 20C16 22.2091 17.7909 24 20 24ZM21.5 18.5H18.5V21.5H21.5V18.5Z" fill="#ffc014"></path>
+                    </g>
+                    <defs xmlns="http://www.w3.org/2000/svg">
+                        <clipPath id="clip0_12306_192926">
+                        <rect width="24" height="24" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                    </svg>
+                </span>
+
+                <span class="menuItems_lbl">Futures</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+
+            <a href="">
+                <span class="menuItems_img">
+                    <svg style="-webkit-box-flex: 0; -webkit-flex: none; -ms-flex: none; flex: none; margin-right: 15px;" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <circle xmlns="http://www.w3.org/2000/svg" cx="12" cy="12" r="11" fill="#474752"></circle>
+                    <path xmlns="http://www.w3.org/2000/svg" d="M10.5335 15.5881V15.6881H10.6335H12.1676H12.2676V15.5881V15.5122C12.2761 14.9895 12.3309 14.5582 12.4299 14.216C12.5284 13.8754 12.6856 13.5841 12.9009 13.3404L12.9015 13.3397C13.1192 13.0891 13.4112 12.8481 13.7799 12.6177C14.1622 12.3831 14.4894 12.1129 14.7607 11.8067C15.0374 11.4991 15.2484 11.1497 15.3933 10.759C15.543 10.3668 15.617 9.93061 15.617 9.4517C15.617 8.77103 15.4598 8.1609 15.1431 7.62415C14.8307 7.08755 14.3864 6.66583 13.8129 6.35933C13.2418 6.05186 12.573 5.9 11.8097 5.9C11.1058 5.9 10.4622 6.03913 9.88064 6.31898L9.88038 6.31911C9.30203 6.59952 8.83452 7.0055 8.4794 7.53599L8.4794 7.53599L8.47908 7.53647C8.12663 8.06955 7.9349 8.70773 7.90011 9.447L7.89518 9.5517H8H9.6108H9.70425L9.71057 9.45847C9.74382 8.96798 9.86587 8.58014 10.0699 8.2881C10.2776 7.9908 10.5344 7.77513 10.8406 7.63816C11.1518 7.49893 11.4745 7.42955 11.8097 7.42955C12.196 7.42955 12.5446 7.50956 12.8575 7.66804C13.1699 7.82624 13.4184 8.05061 13.6047 8.34219C13.789 8.63067 13.883 8.97359 13.883 9.375C13.883 9.69963 13.8255 9.99278 13.7121 10.2559L13.7121 10.2559L13.7116 10.2571C13.6011 10.5231 13.4501 10.7577 13.2585 10.9617C13.0644 11.1639 12.8455 11.3395 12.6016 11.4884C12.1782 11.7433 11.8136 12.0229 11.5088 12.3277C11.1976 12.6389 10.9603 13.0431 10.7944 13.5363C10.6278 14.0319 10.5421 14.6914 10.5335 15.5103V15.5114V15.5881ZM12.0784 19.3045L12.079 19.3041C12.2675 19.1892 12.4176 19.037 12.5283 18.8482C12.6443 18.6576 12.7023 18.4481 12.7023 18.2216C12.7023 17.8793 12.5785 17.5834 12.3342 17.3391C12.0899 17.0948 11.7939 16.971 11.4517 16.971C11.1095 16.971 10.8135 17.0948 10.5692 17.3391C10.3249 17.5834 10.2011 17.8793 10.2011 18.2216C10.2011 18.5638 10.3249 18.8598 10.5692 19.1041C10.8135 19.3484 11.1095 19.4722 11.4517 19.4722C11.6815 19.4722 11.8913 19.4168 12.0784 19.3045Z" fill="#ffc014" stroke="#ffc014" stroke-width="0.2"></path>
+                    </svg>
+                </span>
+
+                <span class="menuItems_lbl">Futures</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+
+            <a href="">
+                <span class="menuItems_img">
+                    <svg style="-webkit-box-flex: 0; -webkit-flex: none; -ms-flex: none; flex: none; margin-right: 15px;" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <circle xmlns="http://www.w3.org/2000/svg" cx="12" cy="12" r="11" fill="#474752"></circle>
+                    <path xmlns="http://www.w3.org/2000/svg" d="M10.5335 15.5881V15.6881H10.6335H12.1676H12.2676V15.5881V15.5122C12.2761 14.9895 12.3309 14.5582 12.4299 14.216C12.5284 13.8754 12.6856 13.5841 12.9009 13.3404L12.9015 13.3397C13.1192 13.0891 13.4112 12.8481 13.7799 12.6177C14.1622 12.3831 14.4894 12.1129 14.7607 11.8067C15.0374 11.4991 15.2484 11.1497 15.3933 10.759C15.543 10.3668 15.617 9.93061 15.617 9.4517C15.617 8.77103 15.4598 8.1609 15.1431 7.62415C14.8307 7.08755 14.3864 6.66583 13.8129 6.35933C13.2418 6.05186 12.573 5.9 11.8097 5.9C11.1058 5.9 10.4622 6.03913 9.88064 6.31898L9.88038 6.31911C9.30203 6.59952 8.83452 7.0055 8.4794 7.53599L8.4794 7.53599L8.47908 7.53647C8.12663 8.06955 7.9349 8.70773 7.90011 9.447L7.89518 9.5517H8H9.6108H9.70425L9.71057 9.45847C9.74382 8.96798 9.86587 8.58014 10.0699 8.2881C10.2776 7.9908 10.5344 7.77513 10.8406 7.63816C11.1518 7.49893 11.4745 7.42955 11.8097 7.42955C12.196 7.42955 12.5446 7.50956 12.8575 7.66804C13.1699 7.82624 13.4184 8.05061 13.6047 8.34219C13.789 8.63067 13.883 8.97359 13.883 9.375C13.883 9.69963 13.8255 9.99278 13.7121 10.2559L13.7121 10.2559L13.7116 10.2571C13.6011 10.5231 13.4501 10.7577 13.2585 10.9617C13.0644 11.1639 12.8455 11.3395 12.6016 11.4884C12.1782 11.7433 11.8136 12.0229 11.5088 12.3277C11.1976 12.6389 10.9603 13.0431 10.7944 13.5363C10.6278 14.0319 10.5421 14.6914 10.5335 15.5103V15.5114V15.5881ZM12.0784 19.3045L12.079 19.3041C12.2675 19.1892 12.4176 19.037 12.5283 18.8482C12.6443 18.6576 12.7023 18.4481 12.7023 18.2216C12.7023 17.8793 12.5785 17.5834 12.3342 17.3391C12.0899 17.0948 11.7939 16.971 11.4517 16.971C11.1095 16.971 10.8135 17.0948 10.5692 17.3391C10.3249 17.5834 10.2011 17.8793 10.2011 18.2216C10.2011 18.5638 10.3249 18.8598 10.5692 19.1041C10.8135 19.3484 11.1095 19.4722 11.4517 19.4722C11.6815 19.4722 11.8913 19.4168 12.0784 19.3045Z" fill="#ffc014" stroke="#ffc014" stroke-width="0.2"></path>
+                    </svg>
+                </span>
+
+                <span class="menuItems_lbl">Earn</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+
+            <a href="">
+                <span class="menuItems_img" id="menu_buycrypto">
+                    
+                </span>
+
+                <span class="menuItems_lbl">Buy Crypto</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+
+            <a href="">
+                <span class="menuItems_img" id="menu_documentation">
+                    <svg style="-webkit-box-flex: 0; -webkit-flex: none; -ms-flex: none; flex: none; margin-right: 15px;" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M8 3H7.2C6.0799 3 5.51984 3 5.09202 3.21799C4.71569 3.40973 4.40973 3.71569 4.21799 4.09202C4 4.51984 4 5.07989 4 6.2V18.8C4 19.9201 4 20.4802 4.21799 20.908C4.40973 21.2843 4.71569 21.5903 5.09202 21.782C5.51984 22 6.0799 22 7.2 22H16.8C17.9201 22 18.4802 22 18.908 21.782C19.2843 21.5903 19.5903 21.2843 19.782 20.908C20 20.4802 20 19.9201 20 18.8V6.2C20 5.0799 20 4.51984 19.782 4.09202C19.5903 3.71569 19.2843 3.40973 18.908 3.21799C18.4802 3 17.9201 3 16.8 3H16C16 4.10457 15.1046 5 14 5H10C8.89543 5 8 4.10457 8 3Z" fill="#474752"></path>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="7" y="10" width="10" height="1" rx="0.5" fill="#ffc014"></rect>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="7" y="13" width="8" height="1" rx="0.5" fill="#ffc014"></rect>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="7" y="16" width="6" height="1" rx="0.5" fill="#ffc014"></rect>
+                    <rect xmlns="http://www.w3.org/2000/svg" x="9" y="1" width="6" height="3" rx="1" fill="#ffc014"></rect>
+                    </svg>
+                </span>
+
+                <span class="menuItems_lbl">Documentation</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+            </a>
+
+            <a href="">
+                <span class="menuItems_img" id="menu_ourcard">
+                    
+                </span>
+
+                <span class="menuItems_lbl">Our Card</span>
+                <span class="menusymbol">
+                    <i class="material-icons">arrow_drop_down</i>
+                </span>
+                
+            </a>
+        </div>
+
+        <div class="menu_items_rightside">
+            <a class="menu_logs" href="../signin/">Log In</a>
+            <a class="menu_logs" href="register/">Sign Up</a>
+
+            <a class="menu_deposit_btn">
+                <i class="material-icons">account_balance_wallet</i>
+                <span>Deposit</span>
+            </a>
+
+            <a class="menu_asset_btn" id="menu_assets_btn">
+                <span>Assets</span>
+                <i class="material-icons">expand_more</i>
+            </a>
+
+            <a class="menu_asset_btn" id="menu_history_btn">
+                <span>History</span>
+                <i class="material-icons">expand_more</i>
+            </a>
+
+            <a class="menu_profile_btn">
+                <span></span>
+            </a>
+
+            <a class="menu_btn">
+                <i class="material-icons" id="btn_menu" onclick="openMenu();">menu</i>
+                <i class="material-icons hide" id="btn_menuclose" onclick="closeMenu();">close</i>
+            </a>
+        </div>
+
+</header>
+<!-- menuprofileAssetsContents -->
+ <div class="menuprofileAssetsContents roboto">
+    <div class="allAsBX" id="as_bx">
+        <span>Assets Overview</span>
+    </div>
+    <div class="allAsBX" id="as_balance">
+        <span id="as_balance_usd">0.00 USD</span>
+        <span id="as_balance_btc">0 BTC</span>
+    </div>
+
+    <div class="allAsBX" id="as_btns">
+        <a>
+            <i class="material-icons">arrow_downward</i>
+            <span> Deposit</span>
+        </a>
+
+        <a>
+            <i class="material-icons">arrow_upward</i>
+            <span> Withdraw</span>
+        </a>
+    </div>
+
+    <div class="allAsBX smfeRow" id="">
+        <div class="rwCol2">
+            <span>Spot</span>
+            <span class="spotFigure">0.0%</span>
+        </div>
+        <div class="rwCol2 rwCol2-rgtsde">
+            <span class="spotUSD">0.00 USD</span>
+        </div>
+    </div>
+
+    <div class="allAsBX smfeRow" id="">
+        <div class="rwCol2">
+            <span>Margin</span>
+            <span class="spotFigure">0.0%</span>
+        </div>
+        <div class="rwCol2 rwCol2-rgtsde">
+            <span class="spotUSD">0.00 USD</span>
+        </div>
+    </div>
+
+    <div class="allAsBX smfeRow" id="">
+        <div class="rwCol2">
+            <span>Futures</span>
+            <span class="spotFigure">0.0%</span>
+        </div>
+        <div class="rwCol2 rwCol2-rgtsde">
+            <span class="spotUSD">0.00 USD</span>
+        </div>
+    </div>
+
+    <div class="allAsBX smfeRow" id="">
+        <div class="rwCol2">
+            <span>Earn</span>
+            <span class="spotFigure">0.0%</span>
+        </div>
+        <div class="rwCol2 rwCol2-rgtsde">
+            <span class="spotUSD">0.00 USD</span>
+        </div>
+    </div>
+ </div>
+<!-- //menuprofileAssetsContents -->
+
+<div class="menuprofileContents">
+                <div class="mprofileInformation">
+                    <span class="mprofilePic"></span>
+                    <div class="mUsernameID">
+                        <span class="userEmail">james@gmail.com</span>
+                        <span class="uid">UID 287364756</span>
+                    </div>
+                    <div class="mprofileQualification">
+                        <span class="mprofileVIP">VIP</span>
+                        <span class="mprofileUnverified">Unverified</span>
+                    </div>
+                </div>
+
+                <div class="mprofileMenuItems">
+                    <a id="">
+                        Wallet 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Settings 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Settings 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Identity Verification 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Wallet Connect 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Promo codes 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Referral program 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        API Management 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                    <a id="">
+                        Mobile app 
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                </div>
+                <div class="mprofileLogout">
+                    <a>Log out</a>
+                </div>
+</div>
+
+<!-- history -->
+<div class="mhistoryContents">          
+    <div class="mprofileMenuItems">
+        <a id="">
+            All transactions 
+            <i class="material-icons">chevron_right</i>
+        </a>
+        <a id="">
+            Deposits 
+               <i class="material-icons">chevron_right</i>
+           </a>
+           <a id="">
+               Withdrawals 
+               <i class="material-icons">chevron_right</i>
+           </a>
+           <a id="">
+               Transfers 
+               <i class="material-icons">chevron_right</i>
+           </a>
+           <a id="">
+               Earnings 
+               <i class="material-icons">chevron_right</i>
+           </a>
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="mainContents">
+        <div class="mcbox_2" id="mcbox_2-1">
+            <div class="message_bx">
+                <h3>Trade with confidence</h3>
+
+                <p>
+                    We don't lend out customer funds, which is verified
+                    though our regurlary published Proof of Reserves audits.
+                </p>
+            </div>
+            <div class="message_img">
+
+            </div>
+        </div>
+
+        <div class="mcbox_2" id="loginsection">
+            <div class="loginbx">
+                <div class="lgbx" id="register_inputsbx">
+                    <div class="loginlblbx">    
+                        <span>Create Account</span> <br>
+                        <span>Already have an account? <a href="../signin/">Log In</a> </span>
+                    </div>
+
+                    <div class="loginInputBx" >
+                        <span class="logsInputBX">
+                            <i class="material-icons">email</i>
+                            <input type="text" class="no-focus" id="register_email" placeholder="E-mail">
+                        </span>
+
+                        <span class="logsInputBX">
+                            <i class="material-icons">lock</i>
+                            <input type="text" class="no-focus" id="register_password" placeholder="Password">
+                        </span>
+
+                    </div>
+                    <span class="logsRequirement">
+                            <span>8+ characters</span>
+                            <span>Lowercase</span>
+                            <span>Capital</span>
+                            <span>Number</span>
+                            <span>Symbol</span>
+                    </span>
+                    <div class="errorMessage emailPasswordErrorMessage">
+                         <p></p>
+                    </div>
+                    <span class="promoReferal" onclick="promoReferal();">
+                            <i class="material-icons" id="promosymbol">local_offer</i>
+                            <span id="promo_txt">Promocode (Optional)</span>
+
+                            <i class="material-icons" id="promosymbol_down">expand_more</i>
+                            <i class="material-icons hide" id="promosymbol_up">expand_less</i>
+                    </span>
+                    <div class="promoInputBX hide">
+                                <input type="text" name="promo" id="promocode_input" class="no-focus-b">
+                    </div>
+
+                    <span class="promoReferal" onclick="referralCode();">
+                            <i class="material-icons" id="promosymbol">person_add</i>
+                            <span id="promo_txt">Referral Code (Optional)</span>
+
+                            <i class="material-icons" id="referralsymbol_down">expand_more</i>
+                            <i class="material-icons hide" id="referralsymbol_up">expand_less</i>
+                    </span>
+                    <div class="promoReferralInputBX hide">
+                                <input type="text" name="promo" id="referralCode_input" class="no-focus-b">
+                    </div>
+                    <div class="captcha">
+                        <span class="captchaBX">
+                            <input type="text" class="no-focus" placeholder="Enter CAPTCHA" id="register_capture">
+                            <span class="captchalbl" id="email_captcha_img"></span>
+                        </span>
+                    </div>
+
+                    <div class="terms_conditions">
+                        <span>
+                            <input type="checkbox" id="register_termscondition">
+                            I accept the Terms of Use and Privacy Policy
+                        </span>
+                        <span>
+                            <input type="checkbox" id="register_restrictedcountry">
+                            I confirm I'm not a citizen/resident of restricted countries
+                        </span>
+
+                        <div class="errorMessage">
+                         <p></p>
+                        </div>
+                    </div>
+                    
+                    <div class="signBtns">
+                        <a onclick="registerUser();">Continue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="../assets/js/header_ctrl.js"></script>
+    <script src="../assets/js/emailpasswordvalidator.js"></script>
+    <script src="../assets/js/userActive.js"></script>
+
+    <script src="signup.js"></script>
+</body>
+</html>

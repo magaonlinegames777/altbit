@@ -1,0 +1,191 @@
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+.mcbox_2{
+    float: left;
+    background-color: #000000;
+    width: 50%;
+    /* margin-left: 1%; */
+    height: 100%;
+    color: white;
+}
+
+.message_bx{
+    text-align: center;
+    padding-top: 31px;
+    width: 90%;
+    margin: auto;
+}
+.message_bx p{
+    margin-top: 10px;
+}
+.message_img{
+    /* border: 1px solid red; */
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: 323px;
+    background-image: url('phone2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#loginsection{
+    background-color: white;
+}
+.loginbx{
+    padding: 16px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 444px;
+    margin: auto;
+    background-color: white;
+    color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.lgbx{
+    width: 95%;
+    /* background-color: red; */
+}
+.loginbx span{
+    display: block;
+}
+.loginlblbx a{
+    text-decoration: none;
+}
+.loginbx span a{
+    color: #0e0eb9;
+    cursor: pointer;
+}
+.loginInputBx{
+    margin-top: 18px;
+}
+.loginInputBx span{
+    border: 1px solid grey;
+    display: block;
+    position: relative;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 13px;
+}
+.loginInputBx i{
+    margin-left: 10px;
+    position: relative;
+    top: 11px;
+    color: #6a6a6a;
+    font-size: 17px;
+}
+.loginInputBx input{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: none;
+    border-radius: 8px;
+    width: 82%;
+}
+
+.forgotpasswordlbl{
+    border: none!important;
+    text-align: right;
+    padding-top: 6px;
+    margin-top: 0!important;
+    font-size: 13px;
+}
+.errorMsg{
+    color: red;
+    font-size: 12px;
+    border: none!important;
+    height: auto!important;
+    display: inline-block!important;
+    margin-left: 3px;
+}
+.captchaBX{
+    border: 1px solid grey;
+    position: relative;
+    border-radius: 10px;
+}
+.captchaBX input{
+    height: 40px;
+    width: 66%;
+    padding-left: 13px;
+    border-radius: 10px;
+}
+.captchalbl{
+    width: 100px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    height: 62%;
+    /* background-image: url('../assets/img/captcha/c82787.png'); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid #8080803d;
+}
+.signBtns{
+    margin-top: 20px;
+}
+.signBtns a{
+    cursor: pointer;
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(to right, #f49431, #d35400);
+    border-radius: 9px
+}
+
+.signInRestriction{
+    border: 1px solid grey;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#restrctd_txt{
+    font-size: 13px;
+}
+.signInRestriction span{
+    display: inline-block;
+    font-size: 13px;
+
+}
+.signInRestriction i{
+    position: absolute;
+    right: 6px;
+    top: 8px;
+}
+.restricted_lists{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 750px) 
+and (min-width: 0px){
+    #mcbox_2-1{
+        display: none;
+    }
+    .mcbox_2{
+        width: 100%;
+    }
+    #loginsection{
+        margin-top: 10%;
+    }
+}
+
+/* all things equal */
+.mainContents {
+    /* height: 400px; */
+    background-color: white;
+    overflow: auto;
+    height: 93vh;
+}
+.no-focus {
+  border: none; /* Remove border */
+  outline: none; /* Remove focus outline */
+}
+
