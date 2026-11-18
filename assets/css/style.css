@@ -589,6 +589,7 @@ color: #fff !important;
 #glober{
 	position: absolute;
     width: 73%;
+	max-width: 329px;
     height: 396px;
     left: 0;
     right: 0;
@@ -728,9 +729,10 @@ border:2px solid #f49431;
 * 05.START LIVE MARKET DESIGN
 * ----------------------------------------------------------------------------------------
 */
-.pgone_live_market {padding-bottom: 80px;}
+/* .pgone_live_market {padding-bottom: 80px;} */
 .currency_live {
 	box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
+	border-radius: 16px;
 }
 .currency_live iframe{
 width:100%;
