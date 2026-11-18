@@ -1,0 +1,200 @@
+#market-overview{
+    border: 1px solid red;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 90%;
+}
+#mo-header-title-bx{
+    border: 1px solid green;
+    overflow: auto;
+    display: block;
+    padding: 12px 0;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.mohtbx-row{
+    overflow: auto;
+    margin-top: 3px;
+}
+.mohtbx-val{
+    /* background-color: red; */
+    display: block;
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+.coinoperation{
+    width: 15%;
+}
+
+.alft1{
+    padding-left: 26px;
+}
+.alft{
+    text-align: left!important;
+    min-width: 123px;
+    background-color: blue;
+}
+.lastprice{
+    min-width: 100px;
+}
+.mohtbx-val-2{
+    border: 1px solid green;
+    display: block;
+    width: 95%;
+    margin: auto;
+}
+
+.coinname{
+    /* background-color: pink; */
+    display: block;
+    text-align: left;
+    min-width: 122px;
+}
+.coinname a{
+    /* border: 1px solid red; */
+    display: block;
+}
+.coinlastprice{
+    text-align: left;
+    min-width: 80px;
+    /* background-color: pink; */
+}
+.coinlbl{
+    position: relative;
+    top: -4px;
+    text-transform: uppercase;
+}
+.coinothrlbl{
+    position: relative;
+    top: 6px;
+}
+.coinnamelogo{
+    width: 24px;
+    top: 2px;
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    background-position: center;
+    background-size: cover;
+}
+#coinname-btc .coinnamelogo{
+    background-image: url(graph/BTC.png);
+}
+#coinname-eth .coinnamelogo{
+    background-image: url(graph/ETH.png);
+}
+#coinname-bnb .coinnamelogo{
+    background-image: url(graph/BNB.png);
+}
+#coinname-xrp .coinnamelogo{
+    background-image: url(graph/XRP.png);
+}
+#coinname-doge .coinnamelogo{
+    background-image: url(graph/DOGE.png);
+}
+#coinname-ton .coinnamelogo{
+    background-image: url(graph/TON.png);
+}
+#coinname-trx .coinnamelogo{
+    background-image: url(graph/TRX.png);
+}
+
+.coingraph{
+    display: block;
+    height: 45px;
+    width: 101px;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#coingraph-btc{
+    background-image: url(graph/btcgraph.png);
+}
+#coingraph-eth{
+    background-image: url(graph/ethgraph.png);
+}
+#coingraph-bnb{
+    background-image: url(graph/bnbgraph.png);
+}
+#coingraph-xrp{
+    background-image: url(graph/xrpgraph.png);
+}
+#coingraph-doge{
+    background-image: url(graph/dogegraph.png);
+}
+#coingraph-ton{
+    background-image: url(graph/tongraph.png);
+}
+#coingraph-trx{
+    background-image: url(graph/trxgraph.png);
+}
+
+
+.bx24hr, .coin24hrchange{
+ width: 13%;
+ min-width: 86px;
+ text-align: left;
+}
+.bxcoinoperation{
+    width: 13%;
+}
+.coin24hrchange{
+}
+
+.coinoperation a{
+    border: 1px solid grey;
+    text-align: center;
+    display: block;
+    width: 90%;
+    min-width: 70px;
+    border-radius: 4px;
+    position: relative;
+    top: 5px;
+    padding: 3px;
+    font-size: 14px;
+    text-decoration: none;
+    margin: auto;
+}
+
+
+
+#market_overview_viewmore{
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+
+.pcncsgsad{
+    /* border: 1px solid grey; */
+    overflow: hidden;
+    height: 37px;
+    width: 95%;
+    margin: auto;
+}
+#market-overview hr{
+    margin: 0;
+}
+.pcncsgsad span{
+    display: block;
+    width: 25%;
+    float: left;
+    height: 99%;
+    color: grey;
+}
+
+#popular_coin{
+    border-bottom: 6px solid yellow;
+    display: block;
+    width: fit-content;
+    height: 100%;
+    color: black;
+    font-weight: bold;
+}
+
+/* after map --- contact */
+.contactBX{
+    margin-top: 30px;
+}

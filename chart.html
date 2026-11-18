@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Live BTC Chart (Binance WS)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- jQuery + Chart.js -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+  <style>
+    :root { --bg:#0b1020; --panel:#121931; --text:#e8eefc; --muted:#9fb0d4; --accent:#3b82f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui, Arial; background:var(--bg); color:var(--text); }
+    header { padding:14px 18px; background:var(--panel); border-bottom:1px solid #1f2a4a; display:flex; gap:12px; align-items:center; }
+    h1 { font-size:16px; margin:0; font-weight:700; letter-spacing:.4px; }
+    .price { font-size:22px; font-weight:800; }
+    .green { color:#22c55e; } .red { color:#ef4444; }
+    .muted { color:var(--muted); font-size:12px; }
+    .container { padding:16px; }
+    .card { background:var(--panel); border:1px solid #1f2a4a; border-radius:14px; padding:12px; }
+    #chart { width:100%; height:54vh; }
+    .row { display:flex; gap:16px; align-items:center; }
+    .pill { padding:4px 8px; border-radius:999px; border:1px solid #2a3a69; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BTC/USDT — Live</h1>
+    <span class="pill">Source: Binance WebSocket</span>
+    <div class="muted">Updates on every trade</div>
+    <div style="margin-left:auto; text-align:right;">
+      <div class="price" id="lastPrice">—</div>
+      <div class="muted" id="lastTime">—</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // ===== Chart setup =====
+    const ctx = document.getElementById('chart');
+    const MAX_POINTS = 600; // keep ~ last 10 min if ~1 update/sec
+    const labels = [];
+    const series = [];
+
+    // Create the Chart.js line chart
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'BTC/USDT',
+          data: series,
+          borderWidth: 2,
+          tension: 0.35,
+          pointRadius: 0,
+          fill: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { enabled: true } },
+        scales: {
+          x: { display: false },
+          y: { display: true, ticks: { color: '#c9d6ff' }, grid: { color: 'rgba(255,255,255,0.06)' } }
+        },
+        elements: { line: { borderJoinStyle: "round" } }
+      }
+    });
+
+    // ===== Helper: formatters =====
+    function fmtTime(ts) {
+      const d = new Date(ts);
+      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second:'2-digit' });
+    }
+    function updatePriceUI(price, prev) {
+      const $p = $('#lastPrice');
+      const up = prev !== null && price >= prev;
+      $p
+        .text(`$${Number(price).toLocaleString(undefined, { maximumFractionDigits: 2 })}`)
+        .toggleClass('green', up)
+        .toggleClass('red', !up);
+      $('#lastTime').text(`Last trade: ${fmtTime(Date.now())}`);
+      // line color matches direction
+      chart.data.datasets[0].borderColor = up ? '#22c55e' : '#ef4444';
+    }
+
+    // ===== Seed initial history (optional, small burst using Binance REST) =====
+    // Get last ~100 recent trades to start the line near current level.
+    async function seed() {
+      try {
+        const r = await fetch('https://api.binance.com/api/v3/trades?symbol=BTCUSDT&limit=100');
+        const trades = await r.json();
+        trades.forEach(tr => {
+          const t = tr.T || tr.time || Date.now();
+          const p = parseFloat(tr.p);
+          labels.push(fmtTime(t));
+          series.push(p);
+        });
+        if (labels.length) chart.update();
+      } catch(e) {
+        // If rate-limited or blocked, we’ll simply start from live stream
+        console.warn('Seed failed, streaming only.', e);
+      }
+    }
+
+    // ===== Live stream via WebSocket =====
+    let last = null;
+    function startStream() {
+      const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+      ws.onmessage = (evt) => {
+        const msg = JSON.parse(evt.data);
+        const price = parseFloat(msg.p);   // trade price
+        const time  = msg.T;               // trade time (ms)
+
+        // push point, trim buffer
+        labels.push(fmtTime(time));
+        series.push(price);
+        if (labels.length > MAX_POINTS) { labels.shift(); series.shift(); }
+
+        // update UI & chart
+        updatePriceUI(price, last);
+        last = price;
+
+        // throttle chart redraw to ~10 fps for performance
+        const now = performance.now();
+        if (!startStream.lastDraw || now - startStream.lastDraw > 100) {
+          chart.update('none'); // no animation for snappy feel
+          startStream.lastDraw = now;
+        }
+      };
+      ws.onclose = () => {
+        // simple retry
+        setTimeout(startStream, 1500);
+      };
+    }
+
+    // Go
+    seed().finally(startStream);
+  </script>
+</body>
+</html>

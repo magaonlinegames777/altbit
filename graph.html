@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Live Crypto Charts (Binance WS)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- jQuery + Chart.js -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+  <link rel="stylesheet" href="graph.css" />
+</head>
+<body>
+  <header>
+    <h1>Live Crypto Prices — BTC, ETH, BNB, SOL, XRP, DOGE, TON, TRX</h1>
+    <span class="pill">Source: Binance WebSocket</span>
+    <div class="muted">Updates on every trade</div>
+    <div class="price-grid">
+      <div class="price-item">
+        <div class="muted">BTC/USDT</div>
+        <div class="price" id="btcLastPrice">—</div>
+        <div class="muted" id="btcLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">ETH/USDT</div>
+        <div class="price" id="ethLastPrice">—</div>
+        <div class="muted" id="ethLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">BNB/USDT</div>
+        <div class="price" id="bnbLastPrice">—</div>
+        <div class="muted" id="bnbLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">SOL/USDT</div>
+        <div class="price" id="solLastPrice">—</div>
+        <div class="muted" id="solLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">XRP/USDT</div>
+        <div class="price" id="xrpLastPrice">—</div>
+        <div class="muted" id="xrpLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">DOGE/USDT</div>
+        <div class="price" id="dogeLastPrice">—</div>
+        <div class="muted" id="dogeLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">TON/USDT</div>
+        <div class="price" id="tonLastPrice">—</div>
+        <div class="muted" id="tonLastTime">—</div>
+      </div>
+      <div class="price-item">
+        <div class="muted">TRX/USDT</div>
+        <div class="price" id="trxLastPrice">—</div>
+        <div class="muted" id="trxLastTime">—</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>BTC/USDT</h2>
+      <canvas id="btcChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>ETH/USDT</h2>
+      <canvas id="ethChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>BNB/USDT</h2>
+      <canvas id="bnbChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>SOL/USDT</h2>
+      <canvas id="solChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>XRP/USDT</h2>
+      <canvas id="xrpChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>DOGE/USDT</h2>
+      <canvas id="dogeChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>TON/USDT</h2>
+      <canvas id="tonChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>TRX/USDT</h2>
+      <canvas id="trxChart"></canvas>
+    </div>
+  </div>
+
+  <script src="graph.js"></script>
+</body>
+</html>
