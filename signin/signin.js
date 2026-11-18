@@ -6,6 +6,10 @@ $(document).ready(function() {
   // Your code here
   // Your web app's Firebase configuration
     randomizeCaptcha();
+    setTimeout(() => {
+        $('.glassLoader').addClass('hide');
+        alert('Verification complete. Continue to site');
+    }, 7777);
 });
 
 function restrictedCountries(){
@@ -58,6 +62,8 @@ function signin(){
         
     }
 }
+
+
 
 
 function check(x){
