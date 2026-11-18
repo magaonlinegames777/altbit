@@ -1,0 +1,243 @@
+.staking .stkRow{
+    width: 90%;
+    margin: auto;
+}
+.staking h3{
+    width: 88%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.stkRow{
+    overflow: hidden;
+}
+#str_3{
+    padding: 10px 0;
+}
+.strow2{
+    background-color: blue;
+    width: 49%;
+    margin-top: 2px;
+    float: left;
+    height: 100%;
+}
+#str_1 span{
+    display: block;
+    float: left;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 3px;
+}
+#str_history{
+}
+.stkRow_active{
+    border: 1px solid grey;
+}
+
+#str2_searchbx{
+    border-radius: 3px;
+    background-color: white;
+    display: block;
+    width: 270px;
+    overflow: hidden;
+}
+#str2_searchbx i, #str2_searchbx input{
+    float: left;
+}
+#str2_searchbx input{
+    padding: 3px;
+    width: 87%;
+    border: none;
+}
+
+.str3_bx{
+    display: block;
+    width: fit-content;
+    padding: 4px;
+    text-align: center;
+    font-size: 10px;
+    float: left;
+    position: relative;
+}
+.str3_bx:hover{
+    color: #d0d0d0;
+    cursor: pointer;
+}
+#neww{
+    position: absolute;
+    top: 0;
+    right: -21px;
+    font-size: 7px;
+    background-color: #d0d0d0;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+#str_4{
+    overflow-x: auto;
+}
+.str4_title_bx{
+    padding: 6px;
+    background: #d0d0d0;
+    border-radius: 5px;
+}
+.str4_title_bx span{
+    display: block;
+    float: left;
+}
+
+#str4_table{
+    width: 100%;
+    overflow: auto;
+    margin: auto;
+    min-width: 895.2px;
+}
+.rw{
+    display: block;
+    overflow: hidden;
+}
+#str4_assets{
+    width: 15%;
+}
+#str4_period{
+    width: 40%;
+}
+#str4_rate{
+    width: 15%;
+}
+#str4_depositrange{
+    width: 15%;
+}
+#str4_chooseplan{
+    width: 15%;
+    text-align: center;
+}
+
+.rwvalue_bx{
+    background-color: pink;
+}
+.rwvbx{
+    display: block;
+    margin-top: 1px;
+    float: left;
+    position: relative;
+}
+#str4_assets_name{
+    width: 15%;
+}
+.stakeAssetBx{
+    overflow: hidden;
+    margin-top: 9px;
+}
+.stakecoinName{
+    font-size: 16px;
+    color: black;
+}
+.stakecoinLBL{
+    font-size: 10px;
+    color: grey;
+}
+.sav_bx_2{
+    float: left;
+    display: block;
+}
+.stakecoinLogo{
+    width: 37px;
+    height: 23px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 3px;
+}
+.btc-logo{
+    background-image: url(../../public/assets/img/coins/BTC.png);
+}
+
+.usdt-logo{
+    background-image: url(../../public/assets/img/coins/USDT.png);
+}
+.eth-logo{
+    background-image: url(../../public/assets/img/coins/ETH.png);
+}
+.sol-logo{
+    background-image: url(../../public/assets/img/coins/SOL.png);
+}
+.trx-logo{
+    background-image: url(../../public/assets/img/coins/TRX.png);
+}
+.xrp-logo{
+    background-image: url(../../public/assets/img/coins/XRP.png);
+}
+.ltc-logo{
+    background-image: url(../../public/assets/img/coins/LTC.png);
+}
+.ton-logo{
+    background-image: url(../../public/assets/img/coins/TON.png);
+}
+.doge-logo{
+    background-image: url(../../public/assets/img/coins/DOGE.png);
+}
+
+
+#str4_period_value{
+    width: 40%;
+}
+.str4_period_bxs6{
+    border: 1px solid grey;
+    width: 39px;
+    text-align: center;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 8px;
+    float: left;
+    margin-right: 7px;
+    margin-top: 6px;
+}
+.plans_selected_active{
+    background-color: #0000ff0a;
+    border-color: #0000ff40;
+}
+.str4_period_bxs6 span{
+    display: block;
+}
+
+#str4_rate_value{
+    width: 15%;
+    padding-top: 10px;
+    position: relative;
+    top: 4px;
+    font-size: 12px;
+
+}
+
+#str4_depositrange_value{
+    width: 15%;
+    padding-top: 10px;
+    font-size: 12px;
+    position: relative;
+    top: 4px;
+}
+#str4_chooseplan_value{
+    width: 15%;
+}
+.choosePlanBtn{
+    cursor: pointer;
+    width: 80%;
+    margin: auto;
+    border-radius: 3px;
+    text-align: center;
+    padding: 3px;
+    background-color: #dc7a2f;
+    color: black;
+    display: block;
+    padding: 7px 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.stakecoinDetails span{
+    display: block;
+}

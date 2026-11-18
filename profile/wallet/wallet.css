@@ -1,0 +1,881 @@
+.mainContents{
+    height: 90vh;
+    overflow: hidden;
+}
+.profileBX_2{
+    float: left;
+    height: 100%;
+}
+.profileBX_2_menu{
+    width: 90%;
+    margin: auto;
+    padding: 6px;
+}
+.assets-overview-bx{
+    max-width: 824px;
+    margin: auto;
+}
+#profile_sidebar{
+    width: 30%;
+    max-width: 207px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#profile_sidebar ul li{
+    cursor: pointer;
+}
+#profile_sidebar ul li:hover{
+    background-color: #ededed;
+}
+.sideBarActive{
+    background-color: #ededed;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.profile_sidebar ul li{
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 45px;
+    cursor: pointer;
+}
+.profile_sidebar ul li:hover{
+    background-color: rgb(205, 205, 205);
+}
+.sidebar_icon{
+    margin-left: 11px;
+    margin-top: 11px;
+    width: 26px;
+}
+.sidebar_lbl{
+    position: relative;
+    top: -7px;
+}
+
+.wallerConnect{
+    margin-top: 20px;
+    cursor: pointer;
+}
+.wallerConnect a{
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    background: linear-gradient(to right, #f49431, #d35400);
+}
+
+
+/* main */
+#profile_main{
+    width: 72%;
+    overflow: auto;
+}
+@media screen and (min-width: 1165px) 
+and (max-width: 9999999999999px){
+    #profile_main{
+    width: 82%;
+}
+}
+
+/* mobile version */
+@media screen and (max-width: 740px){
+    .profileBX_2{
+
+    }
+    #profile_sidebar{
+        display: none;
+    }
+    #profile_main{
+        width: 100%;
+    }
+}
+
+.profileHeaderTitle{
+    font-size: 27px;
+    padding: 10px 0;
+}
+.profileHeaderTitle span{
+    width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.profileAccountBalanceInfo{
+    background-color: #ededed;
+    width: 94%;
+    border-radius: 4px;
+    margin: auto;
+    overflow: auto;
+    padding: 22px 6px;
+    border-radius: 8px;
+    margin-bottom: 33px;
+    font-weight: bold;
+}
+.pABI-bx-2{
+    float: left;
+}
+#pABI-bx-2_1{
+    width: 30%;
+    margin-left: 2%;
+}
+#pABI-rightside{
+    width: 70%;
+    max-width: 420px;
+    float: right;
+}
+#pABI-rightside a{
+    position: relative;
+    max-width: 90px;
+    width: 21%;
+    min-width: 90px;
+    background-color: #f7f7f7;
+    padding: 0 5px;
+    display: block;
+    float: left;
+    border-radius: 4px;
+}
+#pABI_deposit{
+    padding: 4px!important;
+    background: linear-gradient(to right, #f49431, #d35400);
+}
+#pABI-rightside a i{
+    position: relative;
+    top: 1px;
+    font-size: 15px;
+}
+#pABI-rightside a span{
+    position: relative;
+    top: 0;
+}
+
+#pABI_withdraw, #pABI_transfer, #pABI_swap{
+    background-color: red;
+    height: 27px;
+    margin-left: 6px;
+    text-align: center;
+}
+#pABI_withdraw span, #pABI_transfer span,
+ #pABI_swap span{
+    height: 27px;
+    top: 5px!important;
+}
+.profileAccountTable{
+    overflow: auto;
+}
+.profileAccountTable ul{
+    width: 94%;
+    margin: auto;
+    min-width: 551px;
+}
+.tableTitle{
+    background-color: #ededed;
+    padding: 8px 4px;
+    border-radius: 10px;
+    overflow: auto;
+}
+.tableTitle .tbl_assets{
+   padding-left: 3px; 
+   width: 24%!important;
+}
+.tableTitle span{
+    display: inline-block;
+    float: left;
+}
+.tbl_assets{
+    width: 25%
+}
+.tbl_overall{
+    display: inline-block;
+    width: 10%
+}
+.tbl_main{
+    display: inline-block;
+    width: 10%
+
+}
+.tbl_trade{
+    width: 10%;
+    display: inline-block;
+}
+.tbl_collateral{
+    width: 13%;
+    display: inline-block;
+
+}
+.tbl_misc{
+    width: 30%;
+    display: inline-block;
+
+}
+
+/* table figurres */
+.tableFigs{
+    font-size: 12px;
+    overflow: auto;
+    padding: 10px 4px;
+    list-style: none;
+    
+}
+.tbl1{
+    float: left;
+}
+.tableFigs .tbl_assets{
+    display: inline-block;
+    overflow: auto;
+}
+.abx_2{
+    display: block!important;
+    float: left;
+    width: 45%;
+}
+.abxcoinlogo{
+    width: 38px;
+}
+.abx_2 img{
+    width: 31px;
+}
+.abxcoindetails{
+    margin-top: 3px;
+}
+.abxcoindetails span{
+    display: block;
+}
+
+.tblRawAmount{
+    display: block;
+    margin-top: 3px;
+}
+.tblUSDAmount{
+    display: block;
+}
+
+.tblCtrls{
+    width: 30%;
+    display: inline-block;
+    padding: 8px 0;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
+    border:1px solid #ededed;
+}
+.tblCtrls:hover{
+    background-color: #ededed;
+}
+
+
+
+/* DEPOSIT */
+.depositBX{
+    overflow: auto;
+}
+.dpBXTitle{
+    text-align: center;
+    padding: 20px;
+}
+.deposit_section .dpBX2{
+    position: relative;
+}
+.dpBX2{
+    float: left;
+    width: 48%;
+    margin-left: 1%;
+    /* border: 1px solid red; */
+    height: 580px;
+}
+.dpBX2 hr{
+    width: 90%;
+    margin: auto;
+}
+.dpBX2 ul li{
+    list-style: none;
+}
+.droppy{
+    cursor: pointer;
+}
+.dpBX2 .droppy{
+    padding: 6px;
+    position: relative;
+    display: block;
+    overflow: auto;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.droppy i{
+    float: right;
+}
+.droppy img, .droppy_structure img{
+    width: 20px;
+}
+.droppy_coinname{
+    position: relative;
+    top: -4px;
+}
+.coinnameBold{
+    font-weight: bold;
+}
+.deposit_section .droppy_structure{
+    position: absolute;
+    top: 45px;
+    left: 8px;
+}
+.droppy_structure{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 90%;
+    margin: auto;
+    padding: 6px;
+    border-radius: 3px;
+    overflow: auto;
+    height: 250px;
+    margin-top: 8px;
+    display: none;
+    background-color: white;
+    z-index: 777;
+}
+.droppy_structure li{
+    margin-top: 11px;
+    cursor: pointer;
+    padding: 11px 0;
+}
+@media screen and (max-width: 605px) {
+    .depositBX .dpBX2{
+        width: 100%;
+        float: none;
+        height: fit-content;
+    }
+    .depositBX #cs_deposit_btn {
+    margin-bottom: 30px;
+    }
+}
+
+/* cryto scann */
+.crypto_scanner{
+    height: 303px;
+    background-image: url(../../assets/img/scan/btc.jpeg);
+    background-position: center;
+    background-size: 180px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.crypto_scanner .glassblur{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.cs_info{
+    margin-top: 5px;
+    width: 90%;
+    margin: auto;
+}
+.cs_info p{
+    padding: 6px;
+}
+.cs_ctrls, .all_btns{
+    width: 90%;
+    margin: auto;
+}
+.cs_ctrls a, .all_btns a{
+    display: block;
+    padding: 6px;
+    text-align: center;
+    margin-top: 7px;
+    border-radius: 14px;
+    padding: 10px;
+    border: 1px solid #d35400;
+    cursor: pointer;
+}
+
+#cs_deposit_btn{
+    background: linear-gradient(to right, #f49431, #d35400);
+    
+}
+
+
+/* withdrawal */
+.D_W_T_S_withdraw{
+   overflow: auto;
+}
+.witdrawalbx{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+.wthBX2{
+    height: 340px;
+    position: relative;
+}
+.wthBX2 .droppy_structure{
+    position: absolute;
+    top: 45px;
+    left: 8px;
+}
+.wth_lbl{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.witdrawalbx input{
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    width: 90%;
+    border-color: #ffffff;
+}
+
+.wth_available_balance{
+    margin-top: 15px;
+}
+.wth_notification{
+    width: 85%;
+    margin: auto;
+    margin-top: 4px;
+}
+.wth_notification p{
+    color: grey;
+    font-size: 12px;
+}
+.wth_btn, .all_btns{
+    margin-top: 30px;
+}
+
+.allWithdrawBX{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    overflow: auto;
+    position: relative;
+    font-size: 12px;
+}
+
+.generalBalance{
+    /* background-color: red; */
+}
+.allLBL{
+    color: grey;
+}
+.gbLBL{
+}
+.gbFigure{
+    float: right;
+    color: green;
+    font-weight: bold;
+}
+.goToTrading{
+    
+}
+#gtt{
+    display: inline-block;
+    position: relative;
+    color: grey;
+    height: 36px;
+    margin-right: 5px;
+}
+#gtt i{
+    position: relative;
+    top: 6px;
+}
+
+.addressSelected span{
+    display: block;
+}
+.address_type_txt{
+    border: 1px solid grey;
+    padding: 9px;
+    width: 120px;
+    border-radius: 11px;
+    margin-top: 4px;
+    text-align: center;
+}
+
+.notes{
+    background-color: #cdcdcd;
+    padding: 15px 0px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+.notes span{
+    width: 90%;
+    margin: auto;
+    display: block;
+}
+@media screen and (max-width: 605px) {
+    .D_W_T_S_withdraw{
+        width: 98%;
+    }
+    .D_W_T_S_withdraw .dpBX2{
+        width: 98%;
+        float: none;
+        height: fit-content;
+    }
+    #bottom_wthBX2{
+        padding-bottom: 20px;
+    }
+}
+
+/* transfer */
+.D_W_T_S_transfer{
+    overflow: auto;
+}
+.transferBX{
+    position: relative;
+    width: 96%;
+    padding: 14px 5px;
+}
+.transferContainer{
+    max-width: 435px;
+    width: 95%;
+    /* border: 1px solid red; */
+    margin: auto;
+    position: relative;
+}
+
+#transfer_droppystructure{
+    position: absolute;
+    width: 90%;
+    max-width: 415px;
+    background-color: white;
+    margin-left: 16px;
+}
+@media screen and (max-width: 899px) {
+    #pABI-rightside{
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #pABI-bx-2_1 {
+        width: 30%;
+        margin-left: 8px;
+    }
+    .pABI-bx-2 {
+        float: none!important;
+        margin-left: 8px;
+    }
+    #pABI-rightside{
+        width: 100%;
+        overflow: auto;
+        margin-top: 20px;
+    }
+    #pABI-bx-2_1 {
+        width: 30%;
+    }
+    .profileHeaderTitle {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 605px) {
+   .D_W_T_S_transfer .transferBX{
+        height: fit-content;
+        padding-bottom: 20px;
+   }  
+}
+@media screen and (max-width: 528px) {
+    #pABI-bx-2_1{
+        width: 90%;
+        /* background-color: red; */
+    }
+}
+@media screen and (max-width: 471px) {
+    #pABI-rightside{
+        width: 90%;
+    }
+    #pABI-rightside a{
+        width: 45%;
+        margin-top: 5px;
+        max-width: none;
+    }
+    #pABI_deposit {
+        width: 44%!important;
+        margin-left: 6px;
+        padding: 4px 6px !important;
+        background: linear-gradient(to right, #f49431, #d35400);
+    }
+    #pABI_deposit span{
+        display: inline-block;
+        margin: auto;
+        width: 64px;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+
+
+/* swap */
+.currentRate{
+    border: 1px solid grey;
+    height: 41px;
+    width: 98%;
+    position: relative;
+}
+.currentRate span{
+    position: absolute;
+}
+#cr_lbl{
+    top: 0;
+    left: 0;
+    color: #585858;
+}
+#cr_figure{
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+}
+
+#cr_rate_lbl{
+    top: 0;
+    right: 0;
+    color: #585858;
+}
+#cr_rate_percentage{
+    bottom: 0;
+    right: 0;
+    font-weight: bold;
+}
+.swapBX{
+    width: 98%;
+}
+
+
+.swapBox{
+    border: 1px solid grey;
+    display: inline-block;
+    padding: 8px;
+    position: relative;
+    width: 40%;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.swapBox .droppy{
+    width: 100%;
+    margin-top: 0;
+}
+.swapSymbol{
+    position: relative;
+    display: inline-block;
+    background-color: #ef923a;
+    border-radius: 50%;
+    padding: 9px;
+    top: -7px;
+    color: white;
+}
+.swapSymbol i{
+    position: relative;
+    top: 2px;
+}
+
+
+
+.swapDropdownStructureBX{
+    position: relative;
+}
+.swapDropdownStructureBX .droppy_structure{
+    position: absolute;
+}
+#swap_droppystructure_1{
+    /* display: block; */
+    background-color: white;
+    margin: 1px;
+    width: 38%;
+}
+#swap_droppystructure_2{
+    position: absolute;
+    right: 25px;
+    background-color: white;
+    width: 38%;
+    margin: 1px;
+    top: 0;
+}
+
+.swapperInputCtnr{
+    margin-top: 40px;
+    overflow: auto;
+    height: 170px;
+    position: relative;
+}
+.swapperAvailableBalanceBX{
+    width: 45%;
+    border-bottom: 1px solid black;
+    position: absolute;
+}
+#swap_availablebalance_1{
+    left: 0;
+    top: 0;
+}
+#swap_availablebalance_2{
+    right: 0;
+    top: 0;
+}
+
+
+
+
+.swapperInputHoldr{
+    border: 1px solid grey;
+    display: inline-block;
+    padding: 5px 9px;
+    width: 194px;
+    position: absolute;
+    top: 30px;
+    background-color: white;
+    border-radius: 8px;
+}
+#swap_sendinginput{
+    left: 0;
+}
+#swap_receivinginput{
+    right: 0;
+}
+
+.sicABLBL{
+    color: #585858;
+    font-size: 13px;
+}
+.sicABAmount{
+    font-size: 15px;
+    border-bottom: 1px solid black;
+}
+.sihLBL{
+    position: absolute;
+    top: 4px;
+    left: 9px;
+    font-size: 9px;
+}
+.swapperInputHoldr input{
+    display: block;
+    width: 90%;
+    padding: 7px 1px;
+    margin-top: 3px;
+}
+
+.swapCurrentRate{
+    position: relative;
+    top: 79px;
+    overflow: auto;
+    width: 69%;
+}
+.swapCurrentRateBX{
+    float: left;
+    width: 45%;
+    position: relative;
+}
+.rateLoader{
+    left: 52px;
+    top: 25px;
+}
+.swapLBL{
+font-size: 13px;
+ display: block;
+
+
+}
+.swapCommission{
+    color: #585858;
+    position: absolute;
+    bottom: -21px;
+    left: -4px;
+}
+.swapCommission .swapLBL{
+    display: inline-block;
+}
+
+#swapCR_lbl{
+}
+.swapCurrentRateValue{
+    font-weight: bold;
+    color: black;
+
+}
+#swapcurrentrate_value{
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+    color: green;
+}
+.swap_btn a{
+    border-color: transparent;
+    background-color: #cdcdcd;
+}
+
+@media screen and (max-width: 480px) {
+   .swapBox{
+    display: block;
+    width: 96%;
+   }  
+   .dpBX2{
+    height: fit-content;
+    padding-bottom: 20px;
+   }
+   .swapCommission {
+    left: 0;
+   }
+   .swapperInputCtnr{
+    height: 300px;
+    overflow: auto;
+   }
+   .swapSymbol{
+     top: 8px;
+     left: auto;
+     margin: auto;
+     display: block;
+     width: fit-content;
+   }
+   .swapSymbol i{
+    transform: rotate(89deg);
+   }
+   .swapperInputHoldr {
+        position: relative;
+        width: 95%;
+        display: block;
+        top: 0;
+        margin-top: 16px;
+   }
+   .swapperAvailableBalanceBX{
+    position: relative;
+    width: 100%;
+   }
+   #swap_availablebalance_2{
+    margin-top: 33px;
+   }
+   .swapCurrentRate{
+    top: 40px;
+    width: 100%;
+   }
+   .swapCurrentRateBX {
+    width: 49%;
+   }
+   #scrbx_rate{
+    text-align: right;
+   }
+}
+
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+
+
+
+
+
+    /* history data records */
+.records_section table{
+        width: 90%;
+        margin: auto;
+        background-color: #cdcdcd;
+        border-radius: 3px;
+        font-size: 11px;
+}
+.no-data{
+        width: 22%;
+        text-align: center;
+        margin: auto;
+        margin-top: 26px;
+        color: #585858;
+}
