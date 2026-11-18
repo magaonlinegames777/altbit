@@ -116,28 +116,69 @@ $(function () {
     });
   }
 
- function checkersecurity(){
-  $.get('https://ipapi.co/json/', function(data) {
-            const ip = data.ip;
-            const city = data.city;
-            const country = data.country_name;
+//  function checkersecurity(){
+//   $.get('https://ipapi.co/json/', function(data) {
+//             const ip = data.ip;
+//             const city = data.city;
+//             const country = data.country_name;
 
-            // 2. Get Device Info
-            const isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
-            const deviceType = isMobile ? 'Mobile' : 'Desktop';
-            const os = navigator.platform;
-            const browser = navigator.userAgent.match(/(Chrome|Safari|Firefox|Edge)/)[0] || 'Unknown';
-            // const screen = `${screen.width}x${screen.height}`;
-            const ops = country + city + os + deviceType +  browser + ip;
-            IPOS = ops;
-            console.log(IPOS);
-            checkIfUserIsActive(IPOS);
+//             // 2. Get Device Info
+//             const isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+//             const deviceType = isMobile ? 'Mobile' : 'Desktop';
+//             const os = navigator.platform;
+//             const browser = navigator.userAgent.match(/(Chrome|Safari|Firefox|Edge)/)[0] || 'Unknown';
+//             // const screen = `${screen.width}x${screen.height}`;
+//             const ops = country + city + os + deviceType +  browser + ip;
+//             IPOS = ops;
+//             console.log(IPOS);
+//             checkIfUserIsActive(IPOS);
             
-        }).fail(function() {
-            console.log('failed to get ip device info');
+//         }).fail(function() {
+//             console.log('failed to get ip device info');
             
-        });
- }
+//         });
+//  }
+
+function checkersecurity() {
+  getIpInfo(function (info) {
+    var isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+    var deviceType = isMobile ? 'Mobile' : 'Desktop';
+    var os = navigator.platform;
+    var match = navigator.userAgent.match(/(Edg|CriOS|Chrome|Firefox|Safari)/);
+    var browser = match ? match[0] : 'Unknown';
+
+    IPOS = info.country + info.city + os + deviceType + browser + info.ip;
+    console.log(IPOS);
+    checkIfUserIsActive(IPOS);
+  });
+}
+
+function getIpInfo(callback) {
+  // First try ipapi.co
+  $.get('https://ipapi.co/json/')
+    .done(function (data) {
+      if (data.error) {            // ipapi.co can answer with an error message, e.g. rate limited
+        console.log('ipapi.co error:', data.reason);
+        return tryBackup(callback);
+      }
+      callback({ ip: data.ip, city: data.city, country: data.country_name });
+    })
+    .fail(function (xhr, status, err) {
+      console.log('ipapi.co failed. Status code:', xhr.status, status, err);
+      tryBackup(callback);
+    });
+}
+
+function tryBackup(callback) {
+  // Backup service: geojs.io
+  $.get('https://get.geojs.io/v1/ip/geo.json')
+    .done(function (data) {
+      callback({ ip: data.ip, city: data.city, country: data.country });
+    })
+    .fail(function (xhr, status, err) {
+      console.log('failed to get ip device info. Status code:', xhr.status, status, err);
+    });
+}
 // mines
 // FIREBASE DB
 function addUser(x, mail){
