@@ -8,7 +8,7 @@ $(document).ready(function() {
     randomizeCaptcha();
     setTimeout(() => {
         $('.glassLoader').addClass('hide');
-        alert('Verification complete. Continue to site');
+        // alert('Verification complete. Continue to site');
     }, 7777);
 });
 
