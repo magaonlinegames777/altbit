@@ -1,3 +1,6 @@
+
+
+
 .mainContents{
     height: 90vh;
     overflow: hidden;
@@ -586,10 +589,10 @@ and (max-width: 9999999999999px){
 }
 @media screen and (max-width: 471px) {
     #pABI-rightside{
-        width: 90%;
+        width: 95%;
     }
     #pABI-rightside a{
-        width: 45%;
+        width: 44%;
         margin-top: 5px;
         max-width: none;
     }
