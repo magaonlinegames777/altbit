@@ -592,12 +592,12 @@ and (max-width: 9999999999999px){
         width: 95%;
     }
     #pABI-rightside a{
-        width: 44%;
+        width: 43%;
         margin-top: 5px;
         max-width: none;
     }
     #pABI_deposit {
-        width: 44%!important;
+        /* width: 44%!important; */
         margin-left: 6px;
         padding: 4px 6px !important;
         background: linear-gradient(to right, #f49431, #d35400);
