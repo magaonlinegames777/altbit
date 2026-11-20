@@ -10,6 +10,8 @@ $(document).ready(function() {
         $('.glassLoader').addClass('hide');
         // alert('Verification complete. Continue to site');
     }, 7777);
+
+    // alert(IPOS);
 });
 
 function restrictedCountries(){
@@ -53,13 +55,18 @@ function signin(){
                 $('.glassLoader').addClass('hide');
             }
         } else {
-            console.log('Captcha is empty');
+            console.log('Captcha is wrong');
             $('#loginsection .errorMessage p').text(' Please complete the CAPTCHA correctly to verify you are not a robot ');
             clearError();
             $('.glassLoader').addClass('hide');
         }
 
         
+    }else{
+             console.log('Captcha is empty');
+            $('#loginsection .errorMessage p').text(' Please complete the CAPTCHA correctly to verify you are not a robot ');
+            clearError();
+            $('.glassLoader').addClass('hide');
     }
 }
 
@@ -75,9 +82,10 @@ function check(x){
             if (doc.exists) {
                 console.log("Document data:", doc.data());
                 // show profile
-                userSignedIn = 1;
+                // userSignedIn = 1; //hidden
                 userIsActive();
                 const account_id = doc.data().id;
+
                 getUser(account_id);
 
             } else {
@@ -106,8 +114,9 @@ function getUser(id){
     docRef.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            // updateIpl(doc.data().email);
             addSessions(doc.data().email);   
-            activeUsers(doc.data().email,doc.data().id,doc.data().pc);
+            // activeUsers(doc.data().email,doc.data().id,doc.data().pc);
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -117,3 +126,7 @@ function getUser(id){
     });
 }
 
+
+function moveToWallet(){
+          location.href = '../profile/wallet/';
+}
