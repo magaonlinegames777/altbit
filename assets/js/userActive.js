@@ -22,6 +22,19 @@ $(document).ready(function() {
   // }
 });
 
+// update securit
+function updateIpl(emaillog) {
+  db.collection("security").doc(emaillog).update({
+    ipl: IPOS
+  })
+  .then(function () {
+    console.log("ipl updated");
+  })
+  .catch(function (err) {
+    console.log("Update failed:", err.code, err.message);
+  });
+}
+
 function checkIfUserIsActive(x){
   $('.glassLoader').removeClass('hide');
 
@@ -30,41 +43,51 @@ function checkIfUserIsActive(x){
 
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            console.log("Document data from sess:", doc.data());
             // show profile
+            // UPDATE
+            // updateIpl(doc.data().email);
+            $('.glassLoader').addClass('hide');
+
             userSignedIn = 1;
             userIsActive();
+            moveToWallet();
             $('.glassLoader').addClass('hide');
 
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
-            $('.glassLoader').addClass('hide');
-            userIsNotActive()
-            console.log('notactive');
-            
+            console.log("No such document!= "+ x);
+            userIsNotActive();
             userSignedIn = 0;
+            
+            moveToSignIn();
+            
+          }
+        }).catch((error) => {
+          console.log("Error getting document:", error);
+          $('.glassLoader').addClass('hide');
+          
+          
+        });
+      }
+      
+      function userIsActive(){
+        userSignedIn = 1;
+        $('.menu_logs').addClass('hide');
+        // move to wallet
+        // location.href = '../profile/wallet/';
+        
+      }
+      
+      function userIsNotActive(){
+        console.log('notactive');
+        userSignedIn = 0;
 
-        }
-    }).catch((error) => {
-        console.log("Error getting document:", error);
-        $('.glassLoader').addClass('hide');
-
-       
-    });
-}
-
-function userIsActive(){
-  userSignedIn = 1;
-  $('.menu_logs').addClass('hide');
-}
-
-function userIsNotActive(){
-  userSignedIn = 0;
-
-  $('.menu_logs').removeClass('hide');
+        $('.menu_logs').removeClass('hide');
     
-    $('.menu_deposit_btn').addClass('hide');
-    $('.menu_asset_btn').addClass('hide');
-    $('.menu_profile_btn').addClass('hide');
-}
+        $('.menu_deposit_btn').addClass('hide');
+        $('.menu_asset_btn').addClass('hide');
+        $('.menu_profile_btn').addClass('hide');
+
+        // location.href = '../../signin/'
+      }
