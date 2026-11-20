@@ -1,4 +1,117 @@
+/* 2026 MENU FOR MOBILE*/
+#mobile-menu-li{
+    color: white;
+    list-style: none;
+}
+.menuLinkSymbol, .mLS{
+    position: relative;
+    top: 3px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #f49431, #d35400);
+    padding: 3px;
+    font-size: 14px;
+}
+/* MENU FOR USER LOGIN PROFILE */
+.menu_items{
+    width: fit-content;
+    width: 774px;
+    margin-left: 3%;
+}   
+.mLists{
+    padding: 10px 0px;
+    /* background-color: red; */
+    /* display: none; */
+    float: left;
+    position: relative;
+    width: 104px;
+    margin-left: 12px;
+}
+#menu_myProfile{
+    width: 122px!important;
+}
+#menu_swap{
+    width: 80px!important;
+}
+#menu_deposit{
+    width: 91px!important;
+}
+#menu_market{
+    width: 85px!important;
+}
+.mLS2i{
+    font-size: 13px;
+}
+.menuLinkName, .mLN{
+    position: relative;
+    left: 4px;
+}
+.mLS2{
+    position: absolute;
+    right: 4px;
+    top: 7px;
 
+    right: 0px;
+    top: 11px;
+}
+.openerBX{
+    width: 90%;
+    margin-left: 12px;
+    /* mine for now 2026 */
+    display: none;
+    position: fixed;
+    top: 39px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 8px;
+    width: 177px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 8px;
+    padding: 8px;
+    background-color: #0c0c0f;
+}
+.openerBX a{
+    display: block;
+    float: none;
+}
+@media screen and (max-width: 1207px) 
+and (min-width: 0px){
+    #mobile-menu-li{
+    border-top: 1px solid grey;
+    }
+    .mLists{
+        float: none;
+        width: 166px!important;
+        border-bottom: 1px solid grey;
+
+    }
+    #menu_market,#menu_deposit,#menu_swap,#menu_myProfile{
+        width: auto!important;
+    }
+}
+
+/* market section 2026 */
+.market_section {
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 777;
+}
+
+#markets_bx {
+  width: 100%;
+  overflow-x: auto;                   /* scroll sideways */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;  /* smooth swiping on older iPhones */
+}
+
+#markets_bx .cryptohopper-web-widget {
+  min-width: 900px;                   /* wider than a phone screen, so it scrolls */
+}
+
+#markets_bx table {
+  min-width: 900px;
+  white-space: nowrap;                /* keep each cell on one line */
+}
 
 
 .mainContents{
