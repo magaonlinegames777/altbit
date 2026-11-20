@@ -13,7 +13,10 @@ var solUserBalance = 0.00;
 var ltcUserBalance = 0.00;
 var dogeUserBalance = 0.00;
 var adaUserBalance = 0.00;
+var avaxUserBalance = 0.00;
+var wbtcUserBalance = 0.00;
 $(document).ready(function() {
+        $('.glassLoader').removeClass('hide');
 
     // getCryptoPrices();
     wallerProfile  = 'wallet';
@@ -40,7 +43,7 @@ $(document).ready(function() {
             e.stopPropagation();
         });
 
-        // 2026 default
+        // 2026 default swapping and etc
         whichCoin2Swap('btc');
         // real time input for swapping
         $("#sending-value").on("input", function () {
@@ -49,12 +52,111 @@ $(document).ready(function() {
         calculateSendingReceiving(value);
         });
 
+        showBalances();
+
         // SHOW THIS WHEN ON WALLET PAGE
         // checkIfUserIsActive();
         // openAssetsSection();
 });
 
+
+
 // 2026
+function showBalances(){
+  getCryptoPrices(function () {
+    // The prices are ready here
+    // console.log("BTC is $" + btcvalue);
+    // $(".BTC-PRICE").text("$" + btcvalue);
+    // $(".ETH-PRICE").text("$" + ethvalue);
+
+    // var total = btcvalue * 0.5 + ethvalue * 2;
+    // console.log("Portfolio value: $" + total);
+
+
+    // btcusd 
+    $('.BTC-BALANCE').text(btcUserBalance);
+    var btcUSDValue = btcUserBalance * btcvalue;
+    btcUSDValue = btcUSDValue.toFixed(2);
+    $('.BTCUSD-BALANCE').text(btcUSDValue+" $");
+    
+    //ethusd 
+    $('.ETH-BALANCE').text(ethUserBalance);
+    var ethUSDValue = ethUserBalance * ethvalue;
+    ethUSDValue = ethUSDValue.toFixed(2);
+    $('.ETHUSD-BALANCE').text(ethUSDValue+" $");
+
+    //usdtusd 
+    $('.USDT-BALANCE').text(usdtUserBalance);
+    var usdtUSDValue = usdtUserBalance * usdtvalue;
+    usdtUSDValue = usdtUSDValue.toFixed(2);
+    $('.USDTUSD-BALANCE').text(usdtUSDValue+" $");
+
+    //bnbusd 
+    $('.BNB-BALANCE').text(bnbUserBalance);
+    var bnbUSDValue = bnbUserBalance * bnbvalue;
+    bnbUSDValue = bnbUSDValue.toFixed(2);
+    $('.BNBUSD-BALANCE').text(bnbUSDValue+" $");
+
+    //solusd 
+    $('.SOL-BALANCE').text(solUserBalance);
+    var solUSDValue = solUserBalance * solvalue;
+    solUSDValue = solUSDValue.toFixed(2);
+    $('.SOLUSD-BALANCE').text(solUSDValue+" $");
+
+    // xrpusd
+    $('.XRP-BALANCE').text(xrpUserBalance);
+    var xrpUSDValue = xrpUserBalance * xrpvalue;
+    xrpUSDValue = xrpUSDValue.toFixed(2);
+    $('.XRPUSD-BALANCE').text(xrpUSDValue+" $");
+
+    // dogeusd
+    $('.DOGE-BALANCE').text(dogeUserBalance);
+    var dogeUSDValue = dogeUserBalance * dogevalue;
+    dogeUSDValue = dogeUSDValue.toFixed(2);
+    $('.DOGEUSD-BALANCE').text(dogeUSDValue+" $");
+
+    // tonusd
+    $('.TON-BALANCE').text(tonUserBalance);
+    var tonUSDValue = tonUserBalance * tonvalue;
+    tonUSDValue = tonUSDValue.toFixed(2);
+    $('.TONUSD-BALANCE').text(tonUSDValue+" $");
+
+    // trxusd
+    $('.TRX-BALANCE').text(trxUserBalance);
+    var trxUSDValue = trxUserBalance * trxvalue;
+    trxUSDValue = trxUSDValue.toFixed(2);
+    $('.TRXUSD-BALANCE').text(trxUSDValue+" $");
+
+    // adausd
+    $('.ADA-BALANCE').text(adaUserBalance);
+    var adaUSDValue = adaUserBalance * adavalue;
+    adaUSDValue = adaUSDValue.toFixed(2);
+    $('.ADAUSD-BALANCE').text(adaUSDValue+" $");
+
+    // avaxusd
+    $('.AVAX-BALANCE').text(avaxUserBalance);
+    var avaxUSDValue = avaxUserBalance * avaxvalue;
+    avaxUSDValue = avaxUSDValue.toFixed(2);
+    $('.AVAXUSD-BALANCE').text(avaxUSDValue+" $");
+
+    // wbtcusd
+    $('.WBTC-BALANCE').text(wbtcUserBalance);
+    var wbtcUSDValue = wbtcUserBalance * wbtcvalue;
+    wbtcUSDValue = wbtcUSDValue.toFixed(2);
+    $('.WBTCUSD-BALANCE').text(wbtcUSDValue+" $");
+
+    // usdcusd
+    $('.USDC-BALANCE').text(usdcUserBalance);
+    var usdcUSDValue = usdcUserBalance * usdcvalue;
+    usdcUSDValue = usdcUSDValue.toFixed(2);
+    $('.USDCUSD-BALANCE').text(usdcUSDValue+" $");
+
+    // console.log('Show BTC USD Balances: '+ btcUSDValue + 'v+'+ btcvalue);
+  });
+    
+ 
+    
+}
 function swapper(x){
     if (x == 'btc') {
         // swapCurrencyMain = 'btc';
@@ -567,12 +669,24 @@ function whichCoin2Swap_secondary(x){
 // IF USER IS NOT ACTIVE THEN 
 function useractivityWallet(){
     if (userSignedIn == 0) {
-        console.log('yes lord');
-        
+        console.log('Going back to sign in');
+
+
+        //2026 hidden 
         location.href = '../../signin/'
     }
 }
 
+// 2026
+function openMarketSection(){
+    $('.allSection').addClass('hide');
+    $('.market_section ').removeClass('hide');
+    closeMenu();
+    setTimeout(() => {
+        
+    }, 1200);
+}
+// end of 2026
 function openAssetsSection(){
     $('.allSection').addClass('hide');
     $('.assets_overview_section ').removeClass('hide');
@@ -632,4 +746,8 @@ function openRecord(x){
         $('.records_section').removeClass('hide');
         $('.records_section').text('History - All Transactions');
     }
+}
+
+function moveToSignIn(){
+          location.href = '../../signin';
 }
