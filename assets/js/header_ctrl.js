@@ -82,8 +82,8 @@ function showPrices() {
   getCryptoPrices(function () {
     // The prices are ready here
     console.log("BTC is $" + btcvalue);
-    $(".BTC-PRICE").text("$" + btcvalue);
-    $(".ETH-PRICE").text("$" + ethvalue);
+    // $(".BTC-PRICE").text("$" + btcvalue);
+    // $(".ETH-PRICE").text("$" + ethvalue);
 
     var total = btcvalue * 0.5 + ethvalue * 2;
     console.log("Portfolio value: $" + total);
@@ -147,9 +147,10 @@ function checkersecurity() {
     var match = navigator.userAgent.match(/(Edg|CriOS|Chrome|Firefox|Safari)/);
     var browser = match ? match[0] : 'Unknown';
 
-    IPOS = info.country + info.city + os + deviceType + browser + info.ip;
+    IPOS = info.country + os + deviceType + browser + info.ip;
     console.log(IPOS);
-    checkIfUserIsActive(IPOS);
+    //2026 hidden -not hidden
+    checkIfUserIsActive(IPOS); 
   });
 }
 
@@ -243,7 +244,7 @@ function addSecurity(em, x, idd){
 }
 
 function addSessions(mail){
-  // alert(IPOS);
+  // alert('Add sessions- '+IPOS);
     $('.glassLoader').addClass('hide');
     var time = firebase.firestore.FieldValue.serverTimestamp();
     db.collection("sessions").doc(IPOS).set({
@@ -291,22 +292,23 @@ function activeUsers(mail, idd, ps ){
 function checkSessions(ipos){
   $('.glassLoader').removeClass('hide');
   $('.glassLoader').addClass('glasswhite');
-  console.log('Mipos: ' + ipos);
+  console.log('Check sessions: ' + ipos);
 
   if (ipos != 0) {
     var docRef = firebase.firestore().collection("sessions").doc(ipos);
 
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            console.log("Sessions data:", doc.data());
+            // alert('Now you either ')
             // show profile
             userSignedIn = 1;
-            userIsActive();
+            userIsActive(); //hides menu logs
             $('.glassLoader').addClass('hide');
 
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            console.log("No such sessions!="+ipos);
             
             userSignedIn = 0;
             if (wallerProfile == 'wallet') {
@@ -322,7 +324,7 @@ function checkSessions(ipos){
        
     });
   }else{
-    alert('Failed to check sessions because empty IPOS');
+    // alert('Failed to check sessions because empty IPOS');
   }
   
   
