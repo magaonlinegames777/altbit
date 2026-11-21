@@ -45,18 +45,26 @@ function referralCode(){
 }
 
 
-
+var captchaman;
 // register user
 function registerUser(){
-
+var captcha = $('#register_capture').val().trim();
 const terms = document.getElementById('register_termscondition');
 const restrictedCountry = document.getElementById('register_restrictedcountry');
 if (terms.checked) {
     console.log('Checkbox is checked 4 terms!');
     if (restrictedCountry.checked) {
-        // GO!!
-        // get email and password
-        registerEmailPassword();
+        if (captcha == captchaman) {
+            // GO!!
+            // get email and password
+            registerEmailPassword();
+        }else{
+             console.log('Captcha is empty');
+            $('.captchaerror p').text(' Please complete the CAPTCHA correctly to verify you are not a robot ');
+            clearError();
+            $('.glassLoader').addClass('hide');
+        }
+        
     } else {
         $('.terms_conditions .errorMessage p').text('Our platform cannot serve people in the restricted countries');
         clearError();
