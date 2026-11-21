@@ -12,10 +12,12 @@
     font-size: 14px;
 }
 /* MENU FOR USER LOGIN PROFILE */
+
 .menu_items{
     width: fit-content;
     width: 774px;
-    margin-left: 2%;
+    width: 890px;
+    margin-left: 2px;
 }   
 .mLists{
     padding: 10px 0px;
@@ -37,6 +39,13 @@
 }
 #menu_market{
     width: 85px!important;
+}
+#menu_logout .mLS{
+    background: linear-gradient(to right, #b2b2b2, #000000);
+}
+#menu_logout:hover{
+    background-color: #ffffff18;
+    color: red;
 }
 .mLS2i{
     font-size: 13px;
@@ -210,6 +219,7 @@ ul{
 #profile_main{
     width: 72%;
     overflow: auto;
+    z-index: 776;
 }
 @media screen and (min-width: 1165px) 
 and (max-width: 9999999999999px){
