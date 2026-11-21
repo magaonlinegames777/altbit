@@ -53,18 +53,18 @@
 
             <ul id="mobile-menu-li">
                 <!-- opner here -->
-                <li class="mLists">
+                <li class="mLists" id="menu_trading" onclick="openMenuTradingLink();">
                     <i class="material-icons mLS">show_chart</i>
                     <span class="mLN">Trading</span>
 
-                    <i class="material-icons mLS2">keyboard_arrow_down</i>
+                    <i class="material-icons mLS2" id="menu-trading-symbol">keyboard_arrow_down</i>
 
-                    <div class="openerBX">
-                        <a href="">
+                    <div class="openerBX" id="menu-trading-bx">
+                        <a>
                             <i class="material-icons mLS mLS2i">trending_up</i>
                             <span class="mLN">Spot</span>
                         </a>
-                        <a href="">
+                        <a>
                             <i class="material-icons mLS mLS2i">compare_arrows</i>
                             <span class="mLN">Futures</span>
                         </a>
@@ -81,27 +81,29 @@
                     <span class="mLN">Deposit</span>
                 </li>
 
-                <li class="mLists">
+                <li class="mLists" id="menu-withdraw">
                     <i class="material-icons mLS">account_balance_wallet</i>
                     <span class="mLN">Withdraw</span>
                 </li>
+
                 <li class="mLists" id="menu_swap">
                     <i class="material-icons mLS">sync</i>
                     <span class="mLN">Swap</span>
                 </li>
+
                 <!-- opner here -->
-                <li class="mLists" id="menu_myProfile">
+                <li class="mLists" id="menu_myProfile" onclick="openMenuProfileLink();">
                     <i class="material-icons mLS">person</i>
                     <span class="mLN">My Profile</span>
 
-                    <i class="material-icons  mLS2">keyboard_arrow_down</i>
+                    <i class="material-icons  mLS2" id="menu-profile-symbol">keyboard_arrow_down</i>
 
-                    <div class="openerBX">
-                        <a href="">
+                    <div class="openerBX" id="menu-profile-bx">
+                        <a>
                             <i class="material-icons mLS mLS2i">person_pin</i>
                             <span class="mLN">Personal information</span>
                         </a>
-                        <a href="">
+                        <a>
                             <i class="material-icons mLS mLS2i">security</i>
                             <span class="mLN">Change password</span>
                         </a>
@@ -243,7 +245,11 @@
 
 
 <!-- 2026 -->
-<div class="market_section hide">
+<div class="market_section allSection hide">
+    <a id="goback-marketSection" onclick="openAssetsSection();">
+        <i class="material-icons">arrow_back</i>
+        <span>Go back</span>
+    </a>
     <div id="markets_bx">
 
     <div class="cryptohopper-web-widget" data-id="1" data-chart_color="#000000" data-table_columns="name,price_usd,market_cap_usd,volume_usd_24h,available_supply,percent_change_24h,weekly" data-realtime="on" data-table_length="25"></div>
@@ -440,7 +446,7 @@
 </div>
 
     <!-- MAIN CONTAINER BXX -->
-<div class="profileBX_2" id="profile_main">
+<div class="profileBX_2" id="profile_main" onclick="closeAllLinks()">
     
     
     <!-- ALL TRANSACTION, DEPOSITS, WITHDRAWAL, TRANSFERS AND EARNINGS -->
@@ -481,7 +487,7 @@
 
     <!-- ASEET OVERVIEW -->
 
-    <div class="assets_overview_section allSection" id="assets_overview_section">
+    <div class="assets_overview_section allSection" id="assets_overview_section" >
         <div class="profileBX_2_menu hide">
             <i class="material-icons">menu</i>
         </div>
