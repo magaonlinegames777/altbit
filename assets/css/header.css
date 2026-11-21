@@ -144,10 +144,12 @@ and (min-width: 0px){
         color: white;
     }
 
+
     .menu_items{
         float: right;
-        position: absolute;
-        float: right;
+        /* position: absolute; */
+        position: fixed;
+        /* float: right; */
         float: none;
         display: block;
         width: 220px;
