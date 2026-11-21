@@ -62,6 +62,42 @@ $(document).ready(function() {
 
 
 // 2026
+var menuTradingUI = 0;
+function openMenuTradingLink(){
+    if (menuTradingUI == 0) {
+        $('#menu-trading-bx').show();
+        $('#menu-trading-symbol').text('keyboard_arrow_up');
+        menuTradingUI = 1;
+    }else if (menuTradingUI == 1) {
+        $('#menu-trading-bx').hide();
+        $('#menu-trading-symbol').text('keyboard_arrow_down');
+        menuTradingUI = 0;
+
+    }
+    
+}
+var menuProfileUI = 0;
+function openMenuProfileLink(){
+    if (menuProfileUI == 0) {
+        $('#menu-profile-bx').show();
+        $('#menu-profile-symbol').text('keyboard_arrow_up');
+        menuProfileUI = 1;
+    }else if (menuProfileUI == 1) {
+        $('#menu-profile-bx').hide();
+        $('#menu-profile-symbol').text('keyboard_arrow_down');
+        menuProfileUI = 0;
+
+    }
+    
+}
+function closeAllLinks(){
+    $('.openerBX').hide();
+    $('.mLS2').text('keyboard_arrow_down');
+    menuTradingUI = 0;
+
+}
+
+
 function showBalances(){
   getCryptoPrices(function () {
     // The prices are ready here
@@ -689,6 +725,7 @@ function openMarketSection(){
 // end of 2026
 function openAssetsSection(){
     $('.allSection').addClass('hide');
+    // $('.allSection').addClass('hide');
     $('.assets_overview_section ').removeClass('hide');
 
     setTimeout(() => {
