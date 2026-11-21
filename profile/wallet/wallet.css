@@ -15,7 +15,7 @@
 .menu_items{
     width: fit-content;
     width: 774px;
-    margin-left: 3%;
+    margin-left: 2%;
 }   
 .mLists{
     padding: 10px 0px;
@@ -74,16 +74,26 @@
 }
 @media screen and (max-width: 1207px) 
 and (min-width: 0px){
+    .menu_items{
+        width: 230px;
+    }
     #mobile-menu-li{
     border-top: 1px solid grey;
     }
     .mLists{
         float: none;
-        width: 166px!important;
+        /* width: 166px!important; */
+        width: 92%!important;
         border-bottom: 1px solid grey;
 
     }
-    #menu_market,#menu_deposit,#menu_swap,#menu_myProfile{
+    .openerBX {
+        position: relative;
+        top: 0;
+    }
+    #menu_market,#menu_deposit,
+    #menu_swap,#menu_myProfile,
+    #menu_myProfile{
         width: auto!important;
     }
 }
@@ -96,7 +106,18 @@ and (min-width: 0px){
   left: 0;
   z-index: 777;
 }
-
+#goback-marketSection{
+    width: 100px;
+    position: fixed;
+    top: 65px;
+    right: 10px;
+    padding: 10px;
+    background: linear-gradient(to right, #f49431, #d35400);
+}
+#goback-marketSection span{
+    position: relative;
+    top: -6px;
+}
 #markets_bx {
   width: 100%;
   overflow-x: auto;                   /* scroll sideways */
