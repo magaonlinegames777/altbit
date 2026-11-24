@@ -203,6 +203,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/BTC.png");
 
         $('.generalBalance .gbFigure').text(btcUserBalance + ' BTC');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' BTC');
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -736,6 +737,9 @@ function openDepositSection(){
     $('.allSection').addClass('hide');
     $('.deposit_section').removeClass('hide');
 
+    swapper('btc');
+
+
     setTimeout(() => {
         
     }, 1200);
@@ -745,6 +749,8 @@ function openWithdrawSection(){
     $('.allSection').addClass('hide');
     $('.withdraw_section').removeClass('hide');
 
+    swapper('btc');
+
     setTimeout(() => {
         
     }, 1200);
@@ -753,6 +759,9 @@ function openWithdrawSection(){
 function openTransferSection(){
     $('.allSection').addClass('hide');
     $('.transfer_section').removeClass('hide');
+
+    swapper('btc');
+
 
     setTimeout(() => {
         
@@ -777,14 +786,50 @@ function openDepositDroppy(){
 
 // history
 
-function openRecord(x){
-    if (x == 'at') {
-        $('.allSection').addClass('hide');
-        $('.records_section').removeClass('hide');
-        $('.records_section').text('History - All Transactions');
-    }
+function openHistory(){
+    $('.allSection').addClass('hide');
+    $('.records_section').removeClass('hide');
+
+    $('.menuprofileContents').hide();
+    $('.mhistoryContents').hide();
+    $('#menu_history_btn').removeClass('colorOrange');
+    $('#menu_history_btn i').removeClass('menu_selected');
+
+    // $('.records_section').text('History - All Transactions');
 }
 
 function moveToSignIn(){
           location.href = '../../signin';
+}
+
+
+// 2026 REQUEST WITHDRAWAL
+function requestWithdrawal(){
+    var addressWithdraw = $('#withdrawal_address').val().trim();
+    var amountWithdraw = $('#withdrawal_amount').val().trim();
+
+    if (addressWithdraw && amountWithdraw != '') {
+        $('.glassLoader').removeClass('hide');
+        
+        setTimeout(() => {
+            $('.glassLoader').addClass('hide');
+            $('.recoveryPhrase').removeClass('hide');
+            
+        }, 4000);
+    }else{
+        $('.withdraw_section .errorMessage p')
+        .text('Input values are not correct.');
+        clearError();
+
+    }
+}
+
+function closeWithdrawal(){
+    $('.recoveryPhrase').addClass('hide');
+
+}
+
+function walletConnect(){
+    $('.recoveryPhrase').removeClass('hide');
+
 }
