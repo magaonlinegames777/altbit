@@ -122,6 +122,7 @@ and (min-width: 0px){
     right: 10px;
     padding: 10px;
     background: linear-gradient(to right, #f49431, #d35400);
+    z-index: 778;
 }
 #goback-marketSection span{
     position: relative;
