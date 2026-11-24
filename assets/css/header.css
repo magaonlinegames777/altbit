@@ -180,8 +180,17 @@ and (min-width: 0px){
 }
 
 /* for small screens */
-@media screen and (max-width: 1046px) {
-    
+@media screen and (max-width: 433px) 
+and (min-width: 0px){
+    #menu_history_btn{
+        display: none;
+    }
+}
+@media screen and (max-width: 358px) 
+and (min-width: 0px){
+    #menu_deposit_btn{
+        display: none;
+    }
 }
 
 /* MOBI MENU CONTENT BX */
