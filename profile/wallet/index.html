@@ -391,23 +391,23 @@
 <!-- history -->
 <div class="mhistoryContents">          
     <div class="mprofileMenuItems">
-        <a id="">
+        <a id="" onclick="openHistory();">
             All transactions 
             <i class="material-icons">chevron_right</i>
         </a>
-        <a id="">
+        <a id="" onclick="openHistory();">
             Deposits 
                <i class="material-icons">chevron_right</i>
            </a>
-           <a id="">
+           <a id="" onclick="openHistory();">
                Withdrawals 
                <i class="material-icons">chevron_right</i>
            </a>
-           <a id="">
+           <a id="" onclick="openHistory();">
                Transfers 
                <i class="material-icons">chevron_right</i>
            </a>
-           <a id="">
+           <a id="" onclick="openHistory();">
                Earnings 
                <i class="material-icons">chevron_right</i>
            </a>
@@ -455,7 +455,7 @@
     
     
     <!-- ALL TRANSACTION, DEPOSITS, WITHDRAWAL, TRANSFERS AND EARNINGS -->
-    <div class="records_section hide allSection">
+    <div class="records_section all_transactions  allSection hide">
         <div class="assets-overview-bx ">
             <div class="profileHeaderTitle">
                 <span>History</span>
@@ -506,9 +506,9 @@
                     <span>
                         Balance:
                     </span>
-                    <span class="dollarBalance">$0</span>
+                    <span class="dollarBalance BTCUSD-BALANCE">$0</span>
                     <span class="convertr">≈</span>
-                    <span class="btcBalance">0 BTC</span>
+                    <span class="btcBalance"><span class="BTC-BALANCE"></span> BTC</span>
                 </div>
                 <div class="pABI-bx-2" id="pABI-rightside">
                     <a id="pABI_deposit" onclick="openDepositSection();">
@@ -1184,162 +1184,200 @@
     </div>
 
     <!-- WITHDRAW -->
-     <div class="D_W_T_S_withdraw withdraw_section allSection hide" id="withdraw_section">
-        <div class="dpBXTitle">
-            <span>Withdraw Funds</span>
-        </div>
-        <div class="dpBX2 wthBX2">
-            <!-- Dropdown Trigger -->
-            <span class="droppy">
-                <span class="droppySelected">
-                    <img id="withdraw_img" src="../../assets/img/coins/BTC.png" alt="">
-                    <span class="droppy_coinname" id="withdraw_coinname">Bitcoin BTC</span>
-                </span>
-                <i class="material-icons" id="droppy_more">expand_more</i>
-                <i class="material-icons hide" id="droppy_less">expand_less</i>
-            </span>
-
-            <!-- topper -->
-            <div class="generalBalance allWithdrawBX">
-                <span class="gbLBL">General balance</span>
-                <span class="gbFigure" id="generalBalance">0.00 BTC</span>
-            </div>
-
-            <div class="allWithdrawBX goToTrading">
-                <span id="gtt">
-                    <i class="material-icons">trending_up</i>
-                    <span>Go to trading:</span>
-                </span>
-                <span>BTC</span>
-                <span>ETH</span>
-                <span>USDT</span>
-                <span>BNB</span>
-                <span>SOL</span>
-                <span>XRP</span>
-                <span>DOGE</span>
-            </div>
-
-            <div class="addressSelected allWithdrawBX">
-                <span class="asLBL allLBL">Address type selected: </span>
-                <span class="address_type_txt" id="">0.00 BTC</span>
-            </div>
-
-            <div class="allWithdrawBX notes">
-                <span>
-                    We only send funds to the network of your choice. Make sure you choose the right network before withdrawing funds!
-                </span>
-            </div>
-            <!-- //topper -->
-
-
-            <!-- Dropdown Structure -->
-            <ul  class="droppy_structure scrollable" id="witdraw_dropdown_li">
-                <li onclick="swapper('btc')" id="withdraw_main_li">
-                    <img  src="../../assets/img/coins/BTC.png" alt="">
-                    <span class="droppy_coinname" id="withdraw_coinname">
-                        Bitcoin BTC
-                        <!-- <span class="coinnameBold">BTC</span> -->
-                    </span>
-                </li>
-                <li onclick="swapper('eth')">
-                    <img src="../../assets/img/coins/ETH.png" alt="">
-                    <span class="droppy_coinname">
-                        Ethereum ETH
-                        <!-- <span class="coinnameBold">ETH</span> -->
-                    </span>
-                </li>
-                <li onclick="swapper('usdt')">
-                    <img src="../../assets/img/coins/USDT.png" alt="">
-                    <span class="droppy_coinname">
-                        Tether
-                        <span class="coinnameBold">USDT</span>
-                    </span>
-                </li>
-                <li onclick="swapper('usdc')">
-                    <img src="../../assets/img/coins/USDC.png" alt="">
-                    <span class="droppy_coinname">
-                        USD coin
-                        <span class="coinnameBold">USDC</span>
-                    </span>
-                </li>
-                <li onclick="swapper('trx')">
-                    <img src="../../assets/img/coins/TRX.png" alt="">
-                    <span class="droppy_coinname">
-                        TRON
-                        <span class="coinnameBold">TRX</span>
-                    </span>
-                </li>
-                <li onclick="swapper('ton')">
-                    <img src="../../assets/img/coins/TON.png" alt="">
-                    <span class="droppy_coinname">
-                        Toncoin
-                        <span class="coinnameBold">TON</span>
-                    </span>
-                </li>
-                <li onclick="swapper('bnb')">
-                    <img src="../../assets/img/coins/BNB.png" alt="">
-                    <span class="droppy_coinname">
-                        BNB BEP-20
-                        <span class="coinnameBold">BNB</span>
-                    </span>
-                </li>
-                <li onclick="swapper('xrp');">
-                    <img src="../../assets/img/coins/XRP.png" alt="">
-                    <span class="droppy_coinname">
-                        Ripple
-                        <span class="coinnameBold">XRP</span>
-                    </span>
-                </li>
-                <li onclick="swapper('sol');">
-                    <img src="../../assets/img/coins/SOL.png" alt="">
-                    <span class="droppy_coinname">
-                        Solana
-                        <span class="coinnameBold">SOL</span>
-                    </span>
-                </li>
-                <li onclick="swapper('ltc');">
-                    <img src="../../assets/img/coins/LTC.png" alt="">
-                    <span class="droppy_coinname">
-                        Litecoin
-                        <span class="coinnameBold">LTC</span>
-                    </span>
-                </li>
-                <li onclick="swapper('doge');">
-                    <img src="../../assets/img/coins/DOGE.png" alt="">
-                    <span class="droppy_coinname">
-                        Dogecoin
-                        <span class="coinnameBold">DOGE</span>
-                    </span>
-                </li>
-                <li onclick="swapper('ada');">
-                    <img src="../../assets/img/coins/ADA.png" alt="">
-                    <span class="droppy_coinname">
-                        Cardano
-                        <span class="coinnameBold">ADA</span>
-                    </span>
-                </li>
-
-            </ul>
-        </div>
-
-        <div class="dpBX2 wthBX2" id="bottom_wthBX2">
-
-            <div class="witdrawalbx">
-                <span class="wth_lbl">Withdrawal Address</span>
-                <input type="text" placeholder="Address" class="no-focus-b">
-
-                <div class="wth_available_balance">
-                    <input type="text" placeholder="Amount" class="no-focus-b">
+    <div class="D_W_T_S_withdraw withdraw_section allSection hide" id="withdraw_section">
+        <div id="withdraw_step-1">
+                <div class="dpBXTitle">
+                    <span>Withdraw Funds</span>
                 </div>
-            </div>
-            
-            <div class="cs_ctrls wth_btn">
-                <a id="cs_deposit_btn">Request withdrawal</a>
-            </div>
+                <div class="dpBX2 wthBX2">
+                    <!-- Dropdown Trigger -->
+                    <span class="droppy">
+                        <span class="droppySelected">
+                            <img id="withdraw_img" src="../../assets/img/coins/BTC.png" alt="">
+                            <span class="droppy_coinname" id="withdraw_coinname">Bitcoin BTC</span>
+                        </span>
+                        <i class="material-icons" id="droppy_more">expand_more</i>
+                        <i class="material-icons hide" id="droppy_less">expand_less</i>
+                    </span>
 
-            <div class="wth_notification">
-                <p>Payments can take anywhere from a few minutes to a few hours to process.</p>
+                    <!-- topper -->
+                    <div class="generalBalance allWithdrawBX">
+                        <span class="gbLBL">General balance</span>
+                        <span class="gbFigure" id="generalBalance">0.00 BTC</span>
+                    </div>
+
+                    <div class="allWithdrawBX goToTrading">
+                        <span id="gtt">
+                            <i class="material-icons">trending_up</i>
+                            <span>Go to trading:</span>
+                        </span>
+                        <span>BTC</span>
+                        <span>ETH</span>
+                        <span>USDT</span>
+                        <span>BNB</span>
+                        <span>SOL</span>
+                        <span>XRP</span>
+                        <span>DOGE</span>
+                    </div>
+
+                    <div class="addressSelected allWithdrawBX">
+                        <span class="asLBL allLBL">Address type selected: </span>
+                        <span class="address_type_txt gbFigure ">0.00 BTC</span>
+                    </div>
+
+                    <div class="allWithdrawBX notes">
+                        <span>
+                            We only send funds to the network of your choice. Make sure you choose the right network before withdrawing funds!
+                        </span>
+                    </div>
+                    <!-- //topper -->
+
+
+                    <!-- Dropdown Structure -->
+                    <ul  class="droppy_structure scrollable" id="witdraw_dropdown_li">
+                        <li onclick="swapper('btc')" id="withdraw_main_li">
+                            <img  src="../../assets/img/coins/BTC.png" alt="">
+                            <span class="droppy_coinname" id="withdraw_coinname">
+                                Bitcoin BTC
+                                <!-- <span class="coinnameBold">BTC</span> -->
+                            </span>
+                        </li>
+                        <li onclick="swapper('eth')">
+                            <img src="../../assets/img/coins/ETH.png" alt="">
+                            <span class="droppy_coinname">
+                                Ethereum ETH
+                                <!-- <span class="coinnameBold">ETH</span> -->
+                            </span>
+                        </li>
+                        <li onclick="swapper('usdt')">
+                            <img src="../../assets/img/coins/USDT.png" alt="">
+                            <span class="droppy_coinname">
+                                Tether
+                                <span class="coinnameBold">USDT</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('usdc')">
+                            <img src="../../assets/img/coins/USDC.png" alt="">
+                            <span class="droppy_coinname">
+                                USD coin
+                                <span class="coinnameBold">USDC</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('trx')">
+                            <img src="../../assets/img/coins/TRX.png" alt="">
+                            <span class="droppy_coinname">
+                                TRON
+                                <span class="coinnameBold">TRX</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('ton')">
+                            <img src="../../assets/img/coins/TON.png" alt="">
+                            <span class="droppy_coinname">
+                                Toncoin
+                                <span class="coinnameBold">TON</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('bnb')">
+                            <img src="../../assets/img/coins/BNB.png" alt="">
+                            <span class="droppy_coinname">
+                                BNB BEP-20
+                                <span class="coinnameBold">BNB</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('xrp');">
+                            <img src="../../assets/img/coins/XRP.png" alt="">
+                            <span class="droppy_coinname">
+                                Ripple
+                                <span class="coinnameBold">XRP</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('sol');">
+                            <img src="../../assets/img/coins/SOL.png" alt="">
+                            <span class="droppy_coinname">
+                                Solana
+                                <span class="coinnameBold">SOL</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('ltc');">
+                            <img src="../../assets/img/coins/LTC.png" alt="">
+                            <span class="droppy_coinname">
+                                Litecoin
+                                <span class="coinnameBold">LTC</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('doge');">
+                            <img src="../../assets/img/coins/DOGE.png" alt="">
+                            <span class="droppy_coinname">
+                                Dogecoin
+                                <span class="coinnameBold">DOGE</span>
+                            </span>
+                        </li>
+                        <li onclick="swapper('ada');">
+                            <img src="../../assets/img/coins/ADA.png" alt="">
+                            <span class="droppy_coinname">
+                                Cardano
+                                <span class="coinnameBold">ADA</span>
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="dpBX2 wthBX2" id="bottom_wthBX2">
+
+                    <div class="witdrawalbx">
+                        <span class="wth_lbl">Withdrawal Address</span>
+                        <input type="text" placeholder="Address" class="no-focus-b" id="withdrawal_address">
+
+                        <div class="wth_available_balance">
+                            <input type="text" placeholder="Amount" class="no-focus-b" id="withdrawal_amount">
+                        </div>
+                    </div>
+                    <div>
+                        <span class="errorMessage">
+                            <p></p>
+                        </span>
+                    </div>
+                    
+                    <div class="cs_ctrls wth_btn">
+                        <a id="cs_deposit_btn" onclick="requestWithdrawal();">Request withdrawal</a>
+                    </div>
+
+                    <div class="wth_notification">
+                        <p>Payments can take anywhere from a few minutes to a few hours to process.</p>
+                    </div>
+                </div>
+        </div>
+
+    
+
+        <div id="recoveryCode" class="recoveryPhrase">
+        <div class="recovery-card">
+            <i class="material-icons" id="closeRecoveryCard" onclick="closeWithdrawal();">close</i>
+            <div class="recovery-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
             </div>
+            <h2 class="recovery-title">Connect using Recovery Phrase</h2>
+            <p class="recovery-subtitle">Enter your secret recovery phrase to connect to your profile.</p>
+
+            <label for="recoveryPhrase" class="recovery-label">Recovery phrase</label>
+            <input
+            type="text"
+            id="recoveryPhrase"
+            class="recovery-input"
+            placeholder="Enter your 12-word phrase"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            >
+
+            <button id="recoverBtn" class="recovery-btn">Continue</button>
+
+            <p class="recovery-hint">Never share your recovery phrase with anyone.</p>
+        </div>
         </div>
     </div>
 
