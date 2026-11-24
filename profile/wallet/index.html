@@ -109,12 +109,12 @@
                         </a>
                     </div>
                 </li>
-                <li class="mLists">
+                <li class="mLists" onclick="openHistory();">
                     <i class="material-icons mLS">receipt</i>
                     <span class="mLN">History</span>
                 </li>
 
-                <li class="mLists" id="menu_logout" onclick="logout">
+                <li class="mLists" id="menu_logout" onclick="logout();">
                     <i class="material-icons mLS">call_made</i>
                     <span class="mLN">Logout</span>
                 </li>
@@ -222,7 +222,7 @@
             <a class="menu_logs">Log In</a>
             <a class="menu_logs">Sign Up</a>
 
-            <a class="menu_deposit_btn">
+            <a class="menu_deposit_btn" id="menu_deposit_btn">
                 <i class="material-icons">account_balance_wallet</i>
                 <span>Deposit</span>
             </a>
@@ -271,8 +271,8 @@
         <span>Assets Overview</span>
     </div>
     <div class="allAsBX" id="as_balance">
-        <span id="as_balance_usd">0.00 USD</span>
-        <span id="as_balance_btc">0 BTC</span>
+        <span id="as_balance_usd"> <span class="BTCUSD-BALANCE"></span> USD</span>
+        <span id="as_balance_btc"> <span class="BTC-BALANCE"></span> BTC</span>
     </div>
 
     <div class="allAsBX" id="as_btns">
