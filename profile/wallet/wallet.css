@@ -343,15 +343,16 @@ and (max-width: 9999999999999px){
     float: left;
 }
 .tbl_assets{
-    width: 25%
+    width: 25%;
 }
 .tbl_overall{
     display: inline-block;
-    width: 10%
+    width: 10%;
+    width: 87px;
 }
 .tbl_main{
     display: inline-block;
-    width: 10%
+    width: 10%;
 
 }
 .tbl_trade{
@@ -383,6 +384,7 @@ and (max-width: 9999999999999px){
 .tableFigs .tbl_assets{
     display: inline-block;
     overflow: auto;
+    max-width: 99px;
 }
 .abx_2{
     display: block!important;
