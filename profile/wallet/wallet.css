@@ -336,7 +336,8 @@ and (max-width: 9999999999999px){
 }
 .tableTitle .tbl_assets{
    padding-left: 3px; 
-   width: 24%!important;
+   /* width: 24%!important; */
+   width: 17%!important;
 }
 .tableTitle span{
     display: inline-block;
