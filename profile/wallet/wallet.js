@@ -1,22 +1,9 @@
-var balanceOfUser = 3000.00;
-var btcUserBalance = 0.00150;
-var ethUserBalance = 1213.22;
-var usdtUserBalance = 200.30;
-var usdcUserBalance = 1.30;
-var nobalance,trxUserBalance = 0.00;
+
 var swapCurrencyMain = 'btc';
 var swapCurrencySecondary = 'eth';
-var tonUserBalance = 0.00;
-var bnbUserBalance = 0.00;
-var xrpUserBalance = 0.00;
-var solUserBalance = 0.00;
-var ltcUserBalance = 0.00;
-var dogeUserBalance = 0.00;
-var adaUserBalance = 0.00;
-var avaxUserBalance = 0.00;
-var wbtcUserBalance = 0.00;
-var ethPercentage;
+
 var uID;
+var uEmail;
 $(document).ready(function() {
         $('.glassLoader').removeClass('hide');
 
@@ -100,101 +87,7 @@ function closeAllLinks(){
 }
 
 
-function showBalances(){
-  getCryptoPrices(function () {
 
-
-    // ADMIN ADDER
-    var raised = coinAdder("ETH", 10);
-    console.log("ETH +10% = $" + raised.toFixed(2));
-    ethPercentage = raised.toFixed(2);
-    $('#eth_market .price').text(raised.toFixed(2));
-
-
-    // btcusd 
-    $('.BTC-BALANCE').text(btcUserBalance);
-    var btcUSDValue = btcUserBalance * btcvalue;
-    btcUSDValue = btcUSDValue.toFixed(2);
-    $('.BTCUSD-BALANCE').text(btcUSDValue+" $");
-    
-    //ethusd 
-    $('.ETH-BALANCE').text(ethUserBalance);
-    var ethUSDValue = ethUserBalance * ethvalue;
-    ethUSDValue = ethUSDValue.toFixed(2);
-    $('.ETHUSD-BALANCE').text(ethUSDValue+" $");
-
-    //usdtusd 
-    $('.USDT-BALANCE').text(usdtUserBalance);
-    var usdtUSDValue = usdtUserBalance * usdtvalue;
-    usdtUSDValue = usdtUSDValue.toFixed(2);
-    $('.USDTUSD-BALANCE').text(usdtUSDValue+" $");
-
-    //bnbusd 
-    $('.BNB-BALANCE').text(bnbUserBalance);
-    var bnbUSDValue = bnbUserBalance * bnbvalue;
-    bnbUSDValue = bnbUSDValue.toFixed(2);
-    $('.BNBUSD-BALANCE').text(bnbUSDValue+" $");
-
-    //solusd 
-    $('.SOL-BALANCE').text(solUserBalance);
-    var solUSDValue = solUserBalance * solvalue;
-    solUSDValue = solUSDValue.toFixed(2);
-    $('.SOLUSD-BALANCE').text(solUSDValue+" $");
-
-    // xrpusd
-    $('.XRP-BALANCE').text(xrpUserBalance);
-    var xrpUSDValue = xrpUserBalance * xrpvalue;
-    xrpUSDValue = xrpUSDValue.toFixed(2);
-    $('.XRPUSD-BALANCE').text(xrpUSDValue+" $");
-
-    // dogeusd
-    $('.DOGE-BALANCE').text(dogeUserBalance);
-    var dogeUSDValue = dogeUserBalance * dogevalue;
-    dogeUSDValue = dogeUSDValue.toFixed(2);
-    $('.DOGEUSD-BALANCE').text(dogeUSDValue+" $");
-
-    // tonusd
-    $('.TON-BALANCE').text(tonUserBalance);
-    var tonUSDValue = tonUserBalance * tonvalue;
-    tonUSDValue = tonUSDValue.toFixed(2);
-    $('.TONUSD-BALANCE').text(tonUSDValue+" $");
-
-    // trxusd
-    $('.TRX-BALANCE').text(trxUserBalance);
-    var trxUSDValue = trxUserBalance * trxvalue;
-    trxUSDValue = trxUSDValue.toFixed(2);
-    $('.TRXUSD-BALANCE').text(trxUSDValue+" $");
-
-    // adausd
-    $('.ADA-BALANCE').text(adaUserBalance);
-    var adaUSDValue = adaUserBalance * adavalue;
-    adaUSDValue = adaUSDValue.toFixed(2);
-    $('.ADAUSD-BALANCE').text(adaUSDValue+" $");
-
-    // avaxusd
-    $('.AVAX-BALANCE').text(avaxUserBalance);
-    var avaxUSDValue = avaxUserBalance * avaxvalue;
-    avaxUSDValue = avaxUSDValue.toFixed(2);
-    $('.AVAXUSD-BALANCE').text(avaxUSDValue+" $");
-
-    // wbtcusd
-    $('.WBTC-BALANCE').text(wbtcUserBalance);
-    var wbtcUSDValue = wbtcUserBalance * wbtcvalue;
-    wbtcUSDValue = wbtcUSDValue.toFixed(2);
-    $('.WBTCUSD-BALANCE').text(wbtcUSDValue+" $");
-
-    // usdcusd
-    $('.USDC-BALANCE').text(usdcUserBalance);
-    var usdcUSDValue = usdcUserBalance * usdcvalue;
-    usdcUSDValue = usdcUSDValue.toFixed(2);
-    $('.USDCUSD-BALANCE').text(usdcUSDValue+" $");
-
-    // console.log('Show BTC USD Balances: '+ btcUSDValue + 'v+'+ btcvalue);
-  });
-    
- 
-    
-}
 function swapper(x){
     if (x == 'btc') {
         // swapCurrencyMain = 'btc';
@@ -1075,6 +968,7 @@ function convertAmount(){
 // }
 function ADD2HISTORY(coinAddress, coinAmount, whichCoin){
     // Add a new document in collection "cities"
+    alert(userEmail);
     var db = firebase.firestore();
     db.collection("HISTORY").add({
         id: uID,
@@ -1107,6 +1001,7 @@ function GETUSERID(x){
         if (doc.exists) {
             console.log("Document data:", doc.data());
             uID = doc.data().id;
+            GETBALANCES(uID);
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -1114,6 +1009,138 @@ function GETUSERID(x){
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+}
+function GETBALANCES(x){
+    var docRef = db.collection("balances").doc(x);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            var data = doc.data();
+            console.log("Document data:", doc.data());
+            // alert(btcUserBalance);
+            btcUserBalance = parseFloat( data["btc-Balance"]);
+
+            // btcUserBalance = doc.data().btc-Balance;
+            ethUserBalance = parseFloat( data["eth-Balance"]);
+            usdtUserBalance = parseFloat( data["usdt-Balance"]);
+            usdcUserBalance = parseFloat( data["usdc-Balance"]);
+            trxUserBalance = parseFloat( data["trx-Balance"]);
+            tonUserBalance = parseFloat( data["ton-Balance"]);
+            bnbUserBalance = parseFloat( data["bnb-Balance"]);
+            xrpUserBalance = parseFloat( data["xrp-Balance"]);
+            solUserBalance = parseFloat( data["sol-Balance"]);
+            ltcUserBalance = parseFloat( data["ltc-Balance"]);
+            dogeUserBalance = parseFloat( data["doge-Balance"]);
+            adaUserBalance = parseFloat( data["ada-Balance"]);
+            avaxUserBalance = parseFloat( data["avax-Balance"]);
+            wbtcUserBalance = parseFloat( data["wbtc-Balance"]);
+
+            // alert(btcUserBalance);
+            populateBalances();
+            
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
+function populateBalances(){
+    // btcusd      
+    $('.BTC-BALANCE').text(btcUserBalance);
+    var btcUSDValue = btcUserBalance * btcvalue;
+    btcUSDValue = btcUSDValue.toFixed(2);
+    $('.BTCUSD-BALANCE').text(btcUSDValue+" $");
+
+    //ethusd 
+    $('.ETH-BALANCE').text(ethUserBalance);
+    var ethUSDValue = ethUserBalance * ethvalue;
+    ethUSDValue = ethUSDValue.toFixed(2);
+    $('.ETHUSD-BALANCE').text(ethUSDValue+" $");
+
+    //usdtusd 
+    $('.USDT-BALANCE').text(usdtUserBalance);
+    var usdtUSDValue = usdtUserBalance * usdtvalue;
+    usdtUSDValue = usdtUSDValue.toFixed(2);
+    $('.USDTUSD-BALANCE').text(usdtUSDValue+" $");
+
+    //bnbusd 
+    $('.BNB-BALANCE').text(bnbUserBalance);
+    var bnbUSDValue = bnbUserBalance * bnbvalue;
+    bnbUSDValue = bnbUSDValue.toFixed(2);
+    $('.BNBUSD-BALANCE').text(bnbUSDValue+" $");
+
+    //solusd 
+    $('.SOL-BALANCE').text(solUserBalance);
+    var solUSDValue = solUserBalance * solvalue;
+    solUSDValue = solUSDValue.toFixed(2);
+    $('.SOLUSD-BALANCE').text(solUSDValue+" $");
+
+    // xrpusd
+    $('.XRP-BALANCE').text(xrpUserBalance);
+    var xrpUSDValue = xrpUserBalance * xrpvalue;
+    xrpUSDValue = xrpUSDValue.toFixed(2);
+    $('.XRPUSD-BALANCE').text(xrpUSDValue+" $");
+
+    // dogeusd
+    $('.DOGE-BALANCE').text(dogeUserBalance);
+    var dogeUSDValue = dogeUserBalance * dogevalue;
+    dogeUSDValue = dogeUSDValue.toFixed(2);
+    $('.DOGEUSD-BALANCE').text(dogeUSDValue+" $");
+
+    // tonusd
+    $('.TON-BALANCE').text(tonUserBalance);
+    var tonUSDValue = tonUserBalance * tonvalue;
+    tonUSDValue = tonUSDValue.toFixed(2);
+    $('.TONUSD-BALANCE').text(tonUSDValue+" $");
+
+    // trxusd
+    $('.TRX-BALANCE').text(trxUserBalance);
+    var trxUSDValue = trxUserBalance * trxvalue;
+    trxUSDValue = trxUSDValue.toFixed(2);
+    $('.TRXUSD-BALANCE').text(trxUSDValue+" $");
+
+    // adausd
+    $('.ADA-BALANCE').text(adaUserBalance);
+    var adaUSDValue = adaUserBalance * adavalue;
+    adaUSDValue = adaUSDValue.toFixed(2);
+    $('.ADAUSD-BALANCE').text(adaUSDValue+" $");
+
+    // avaxusd
+    $('.AVAX-BALANCE').text(avaxUserBalance);
+    var avaxUSDValue = avaxUserBalance * avaxvalue;
+    avaxUSDValue = avaxUSDValue.toFixed(2);
+    $('.AVAXUSD-BALANCE').text(avaxUSDValue+" $");
+
+    // wbtcusd
+    $('.WBTC-BALANCE').text(wbtcUserBalance);
+    var wbtcUSDValue = wbtcUserBalance * wbtcvalue;
+    wbtcUSDValue = wbtcUSDValue.toFixed(2);
+    $('.WBTCUSD-BALANCE').text(wbtcUSDValue+" $");
+
+    // usdcusd
+    $('.USDC-BALANCE').text(usdcUserBalance);
+    var usdcUSDValue = usdcUserBalance * usdcvalue;
+    usdcUSDValue = usdcUSDValue.toFixed(2);
+    $('.USDCUSD-BALANCE').text(usdcUSDValue+" $");
+
+}
+function showBalances(){
+    alert(btcUserBalance);
+  getCryptoPrices(function () {
+
+
+    // ADMIN ADDER
+    var raised = coinAdder("ETH", 10);
+    console.log("ETH +10% = $" + raised.toFixed(2));
+    ethPercentage = raised.toFixed(2);
+    $('#eth_market .price').text(raised.toFixed(2));
+
+  });
+    
+ 
+    
 }
 function GETHISTORY(){
     var db = firebase.firestore();
