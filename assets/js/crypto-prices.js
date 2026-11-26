@@ -49,3 +49,18 @@ $(function () {
   // Optional: refresh every 60 seconds
   // setInterval(getCryptoPrices, 60000);
 });
+
+
+
+function coinAdder(x, y) {
+  var price = window[x.toLowerCase() + "value"];
+  if (!price) return null;            // price not loaded yet, or unknown coin
+  return price + (price * y / 100);
+}
+
+
+function usdToCoin(usdAmount, coin) {
+  var price = window[coin.toLowerCase() + "value"];
+  if (!price) return null; // price not loaded yet, or unknown coin
+  return usdAmount / price;
+}
