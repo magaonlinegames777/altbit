@@ -38,6 +38,7 @@
 		<link rel="stylesheet" href="assets/css/style.css">			
 		<link rel="stylesheet" href="assets/css/coins.css">			
 		<link rel="stylesheet" href="assets/css/responsive.css">
+		<link rel="stylesheet" href="profile/wallet/market.css">
 		<link rel="icon" href="assets/imgg/iconn.png" type="image/png">			
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -147,6 +148,68 @@
 
 		<!-- START LIVE MARKET -->
 		<div class="pgone_live_market">
+<div id="marketSection">
+  <div class="market-scroll">
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th class="col-name">Name</th>
+          <th>Last Price</th>
+          <th>24H Change %</th>
+          <th>24H Low</th>
+          <th>24H Volume</th>
+          <th id="chart_side">Chart</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="btc_market">
+          <td class="coin-name">Bitcoin <span class="ticker">btc</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="eth_market">
+          <td class="coin-name">Ethereum <span class="ticker">eth</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="usdt_market">
+          <td class="coin-name">Tether <span class="ticker">usdt</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="bnb_market">
+          <td class="coin-name">BNB <span class="ticker">bnb</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="usdc_market">
+          <td class="coin-name">USD Coin <span class="ticker">usdc</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="xrp_market">
+          <td class="coin-name">XRP <span class="ticker">xrp</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="sol_market">
+          <td class="coin-name">Solana <span class="ticker">sol</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="trx_market">
+          <td class="coin-name">TRON <span class="ticker">trx</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="steth_market">
+          <td class="coin-name">Lido Staked ETH <span class="ticker">steth</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="doge_market">
+          <td class="coin-name">Dogecoin <span class="ticker">doge</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="hype_market">
+          <td class="coin-name">Hyperliquid <span class="ticker">hype</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 			<div class="container">								
 				<div class="row">
 					<div class="col-lg-12">
@@ -1098,6 +1161,9 @@
 			<script src="assets/js/login.js"></script>
 		<!-- scripts js -->
 			<script src="assets/js/scripts.js"></script>
+
+			<script src="assets/js/crypto-prices.js"></script>
+			<script src="profile/wallet/market.js"></script>
 
 			<script src="home.js"></script>	
 
