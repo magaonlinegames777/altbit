@@ -1,0 +1,46 @@
+.globe-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.globe {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0b3d66;                 /* ocean color */
+  box-shadow: 0 0 40px rgba(31, 142, 241, 0.35);
+}
+
+/* the dotted "land", repeated and scrolled to fake rotation */
+.globe-surface {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffc49e 1.4px, transparent 1.6px);
+  background-size: 16px 16px;
+  animation: spin-globe 18s linear infinite;   /* slow spin */
+}
+
+/* sphere shading: light top-left, dark edges */
+.globe-shade {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      transparent 55%),
+    radial-gradient(circle at 70% 75%,
+      rgba(0, 0, 0, 0.55) 0%,
+      transparent 60%);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes spin-globe {
+  from { background-position: 0 0; }
+  to   { background-position: 220px 0; }   /* one full width = seamless loop */
+}
