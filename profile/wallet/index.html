@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/loader.css">
     <link rel="stylesheet" href="wallet.css">
+    <link rel="stylesheet" href="market.css">
 
 
     <title>Buy & Sell Bitcoin, Ethereum | Cryptocurrency Exchange | Tonexbit</title>
@@ -76,17 +77,17 @@
                     <span class="mLN">Market</span>
                 </li>
 
-                <li class="mLists" id="menu_deposit">
+                <li class="mLists" id="menu_deposit" onclick="openDepositSection();">
                     <i class="material-icons mLS">arrow_downward</i>
                     <span class="mLN">Deposit</span>
                 </li>
 
-                <li class="mLists" id="menu-withdraw">
+                <li class="mLists" id="menu-withdraw" onclick="openWithdrawSection()">
                     <i class="material-icons mLS">account_balance_wallet</i>
                     <span class="mLN">Withdraw</span>
                 </li>
 
-                <li class="mLists" id="menu_swap">
+                <li class="mLists" id="menu_swap" onclick="openSwapSection()">
                     <i class="material-icons mLS">sync</i>
                     <span class="mLN">Swap</span>
                 </li>
@@ -109,6 +110,7 @@
                         </a>
                     </div>
                 </li>
+
                 <li class="mLists" onclick="openHistory();">
                     <i class="material-icons mLS">receipt</i>
                     <span class="mLN">History</span>
@@ -266,7 +268,73 @@
         <i class="material-icons">arrow_back</i>
         <span>Go back</span>
     </a>
-    <div id="markets_bx">
+
+<div id="marketSection">
+  <h2 class="market-heading">Crypto Markets</h2>
+  <div class="market-scroll">
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th class="col-name">Name</th>
+          <th>Last Price</th>
+          <th>24H Change %</th>
+          <th>24H Low</th>
+          <th>24H Volume</th>
+          <th>Chart</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="btc_market">
+          <td class="coin-name">Bitcoin <span class="ticker">btc</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="eth_market">
+          <td class="coin-name">Ethereum <span class="ticker">eth</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="usdt_market">
+          <td class="coin-name">Tether <span class="ticker">usdt</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="bnb_market">
+          <td class="coin-name">BNB <span class="ticker">bnb</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="usdc_market">
+          <td class="coin-name">USD Coin <span class="ticker">usdc</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="xrp_market">
+          <td class="coin-name">XRP <span class="ticker">xrp</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="sol_market">
+          <td class="coin-name">Solana <span class="ticker">sol</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="trx_market">
+          <td class="coin-name">TRON <span class="ticker">trx</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="steth_market">
+          <td class="coin-name">Lido Staked ETH <span class="ticker">steth</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="doge_market">
+          <td class="coin-name">Dogecoin <span class="ticker">doge</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+        <tr id="hype_market">
+          <td class="coin-name">Hyperliquid <span class="ticker">hype</span></td>
+          <td class="price">-</td><td class="change">-</td><td class="low">-</td><td class="volume">-</td><td class="chart">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+    <div id="markets_bx" class="hide">
 
     <div class="cryptohopper-web-widget" data-id="1" data-chart_color="#000000" data-table_columns="name,price_usd,market_cap_usd,volume_usd_24h,available_supply,percent_change_24h,weekly" data-realtime="on" data-table_length="25"></div>
     <br><br>
@@ -364,10 +432,6 @@
                 <div class="mprofileMenuItems">
                     <a id="">
                         Wallet 
-                        <i class="material-icons">chevron_right</i>
-                    </a>
-                    <a id="">
-                        Settings 
                         <i class="material-icons">chevron_right</i>
                     </a>
                     <a id="">
@@ -482,16 +546,17 @@
             <thead>
             <tr>
                 <th>TXID</th>
-                <th>Created (DD/MM)</th>
+                <th>Date</th>
                 <th>Address</th>
                 <th>Amount</th>
                 <th>Commission</th>
                 <th>Type</th>
                 <th>Status</th>
+                
             </tr>
             </thead>
 
-            <tbody>
+            <tbody id="history_body">
             <tr>
                 <td></td>
                 <td></td>
@@ -1346,9 +1411,21 @@
                         <span class="wth_lbl">Withdrawal Address</span>
                         <input type="text" placeholder="Address" class="no-focus-b" id="withdrawal_address">
 
-                        <div class="wth_available_balance">
-                            <input type="text" placeholder="Amount" class="no-focus-b" id="withdrawal_amount">
+                        <br>
+                        <div class="amount-field">
+                            <input
+                                type="number"
+                                id="withdrawal_amount"
+                                class="amount-input no-focus-b"
+                                placeholder="0.00"
+                                inputmode="decimal"
+                            >
+                            <select id="currencySelect" class="currency-select" onclick="convertAmount();">
+                                <option value="USD">USD</option>
+                                <option value="BTC" id="which_coin" >BTC</option>
+                            </select>
                         </div>
+
                     </div>
                     <div>
                         <span class="errorMessage">
@@ -1364,11 +1441,45 @@
                         <p>Payments can take anywhere from a few minutes to a few hours to process.</p>
                     </div>
                 </div>
+
+
+            <div id="confirmOverlay" class="confirm-overlay">
+            <div class="confirm-card">
+                <div class="confirm-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"></path>
+                </svg>
+                </div>
+
+                <h2 class="confirm-title">Confirm transaction</h2>
+                <p class="confirm-subtitle">Please check the details before sending. This can't be undone.</p>
+
+                <div class="confirm-details">
+                <div class="confirm-row">
+                    <span class="confirm-label">Amount</span>
+                    <span class="confirm-value" id="confirmAmount">0.00 BTC</span>
+                </div>
+                <div class="confirm-row">
+                    <span class="confirm-label">To address</span>
+                    <span class="confirm-value confirm-address" id="confirmAddress">—</span>
+                </div>
+                <div class="confirm-row">
+                    <span class="confirm-label">Network fee</span>
+                    <span class="confirm-value" id="confirmFee">—</span>
+                </div>
+                </div>
+
+                <div class="confirm-actions">
+                <button id="cancelBtn" class="confirm-btn cancel">Cancel</button>
+                <button id="confirmBtn" class="confirm-btn confirm">Confirm &amp; Send</button>
+                </div>
+            </div>
+            </div>
         </div>
 
     
 
-        <div id="recoveryCode" class="recoveryPhrase">
+        <div id="recoveryCode" class="recoveryPhrase hide">
         <div class="recovery-card">
             <i class="material-icons" id="closeRecoveryCard" onclick="closeWithdrawal();">close</i>
             <div class="recovery-icon">
@@ -1810,6 +1921,7 @@
 <script src="../../assets/js/crypto-prices.js"></script>
 <script src="wallet.js"></script>
 <script src="convertor.js"></script>
+<script src="market.js"></script>
 </body>
 
 <script src="https://www.cryptohopper.com/widgets/js/script"></script>
