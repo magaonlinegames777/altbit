@@ -590,15 +590,14 @@ color: #fff !important;
 	position: absolute;
     width: 73%;
 	max-width: 329px;
-    height: 396px;
     left: 0;
     right: 0;
     bottom: 17%;
     margin: auto;
-	background-image: url(../img/earth-night-1918.gif);
+	/* background-image: url(../img/earth-night-1918.gif);
     background-repeat: no-repeat;
     background-size: 198%;
-	background-position: center;
+	background-position: center; */
 	z-index: 1;
 }
 .hero-text h2 {
