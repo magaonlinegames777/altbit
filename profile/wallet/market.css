@@ -1,0 +1,80 @@
+/* new start */
+#marketSection {
+  margin-top: 34px;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #f0f6fc;
+}
+
+.market-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  padding: 0 4px;
+}
+
+.market-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.market-table {
+  width: 100%;
+  min-width: 720px;        /* forces sideways scroll on phones */
+  border-collapse: collapse;
+  background: #161b22;
+  /* border-radius: 12px; */
+  overflow: hidden;
+}
+#chart_side{
+  text-align: left;
+}
+.market-table th,
+.market-table td {
+  padding: 14px 16px;
+  text-align: right;
+  font-size: 14px;
+  white-space: nowrap;
+  border-bottom: 1px solid #21262d;
+}
+
+.market-table th {
+  color: #8b949e;
+  font-weight: 500;
+  background: #0d1117;
+}
+
+.market-table .col-name,
+.market-table td.coin-name {
+  text-align: left;
+  padding-bottom: 26px;
+}
+
+.market-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.market-table tbody tr:hover {
+  background: #1c2230;
+}
+
+.coin-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.coin-name .ticker {
+  color: #8b949e;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.change-up   { color: #26a65b; }
+.change-down { color: #e0484d; }
+
+.spark { display: block; }
+
