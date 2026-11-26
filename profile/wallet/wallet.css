@@ -120,14 +120,15 @@ and (min-width: 0px){
 .market_section {
   width: 100%;
   position: absolute;
-  top: 60px;
+  top: 55px;
   left: 0;
   z-index: 777;
+  background-color: #161b22;
 }
 #goback-marketSection{
     width: 100px;
-    position: fixed;
-    top: 65px;
+    position: absolute;
+    top: 5px;
     right: 10px;
     padding: 10px;
     background: linear-gradient(to right, #f49431, #d35400);
@@ -144,15 +145,9 @@ and (min-width: 0px){
   -webkit-overflow-scrolling: touch;  /* smooth swiping on older iPhones */
 }
 
-#markets_bx .cryptohopper-web-widget {
-  min-width: 900px;                   /* wider than a phone screen, so it scrolls */
-}
+/* old end */
 
-#markets_bx table {
-  min-width: 900px;
-  white-space: nowrap;                /* keep each cell on one line */
-}
-
+/* end of market */
 
 .mainContents{
     height: 90vh;
@@ -563,6 +558,7 @@ and (max-width: 9999999999999px){
 .D_W_T_S_withdraw{
    overflow: auto;
 }
+
 .witdrawalbx{
     width: 90%;
     margin: auto;
@@ -588,7 +584,77 @@ and (max-width: 9999999999999px){
     border-radius: 8px;
     width: 90%;
     border-color: #ffffff;
+    color: #000;
 }
+#withdrawal_address{
+ border-right: 1px solid #bebebe;   
+ border-bottom: 1px solid #bebebe;   
+}
+/* withdraw input usd or btc */
+.amount-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+  /* background: #0d1117; */
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.amount-field:focus-within {
+  border-color: #f7931a;
+  box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
+}
+
+.amount-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #000;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.amount-input::placeholder {
+  color: #6e7681;
+}
+
+/* hide the number spinner arrows */
+.amount-input::-webkit-outer-spin-button,
+.amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.amount-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.currency-select {
+  align-self: stretch;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  /* background: #161b22; */
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid #30363d;
+  outline: none;
+  cursor: pointer;
+}
+
+.currency-select option {
+  /* background: #161b22; */
+  background-color: transparent;
+}
+/* end of withdraw input */
+
 
 .wth_available_balance{
     margin-top: 15px;
@@ -679,6 +745,132 @@ and (max-width: 9999999999999px){
         padding-bottom: 20px;
     }
 }
+
+/* TRANSACTION CONFIRMATION */
+.confirm-overlay {
+  display: none;                 /* shown by JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.confirm-overlay.show { display: flex; }
+
+.confirm-card {
+  width: 100%;
+  max-width: 400px;
+  background: #161b22;
+  border: 1px solid #272e38;
+  border-radius: 16px;
+  padding: 30px 28px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.confirm-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: rgba(247, 147, 26, 0.12);
+  color: #f7931a;
+}
+
+.confirm-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+.confirm-subtitle {
+  margin: 0 0 22px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b949e;
+}
+
+.confirm-details {
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 10px;
+  padding: 4px 16px;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #21262d;
+}
+
+.confirm-row:last-child { border-bottom: none; }
+
+.confirm-label {
+  font-size: 13px;
+  color: #8b949e;
+  flex-shrink: 0;
+}
+
+.confirm-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f0f6fc;
+  text-align: right;
+  word-break: break-all;      /* long addresses wrap instead of overflowing */
+}
+
+.confirm-address {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.confirm-btn {
+  flex: 1;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.confirm-btn:active { transform: scale(0.99); }
+
+.confirm-btn.cancel {
+  background: #21262d;
+  color: #c9d1d9;
+}
+.confirm-btn.cancel:hover { background: #2b323c; }
+
+.confirm-btn.confirm {
+  background: linear-gradient(to right, #f49431, #d35400);
+  color: #fff;
+}
+.confirm-btn.confirm:hover { background: #d35400; }
+
+/* END OF TRNASACTION CONFIRMATION  */
+
+
 
 /* transfer */
 .D_W_T_S_transfer{
@@ -1018,19 +1210,43 @@ font-size: 13px;
    }
 }
 
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+ /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 
 
 
 
 
-    /* history data records */
+/* history data records */
 .records_section table{
         width: 90%;
         margin: auto;
-        background-color: #cdcdcd;
         border-radius: 3px;
         font-size: 11px;
+}
+.records_section thead{
+    background-color: #cdcdcd;
+}
+.records_section .type{
+    text-transform: uppercase;
+}
+.records_section .pending i{
+    font-size: 9px;
+    position: absolute;
+    left: 6px;
+    top: 11px;
+}
+.records_section .pending span{
+    font-size: 10px;
+    /* background: red; */
+    position: relative;
+    left: 5px;
+}
+.records_section .pending{
+    background-color: #c1c1c1c4;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 3px;
+    position: relative;
 }
 .no-data{
         width: 22%;
