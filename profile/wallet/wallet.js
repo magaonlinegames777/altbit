@@ -15,6 +15,8 @@ var dogeUserBalance = 0.00;
 var adaUserBalance = 0.00;
 var avaxUserBalance = 0.00;
 var wbtcUserBalance = 0.00;
+var ethPercentage;
+var uID;
 $(document).ready(function() {
         $('.glassLoader').removeClass('hide');
 
@@ -100,13 +102,13 @@ function closeAllLinks(){
 
 function showBalances(){
   getCryptoPrices(function () {
-    // The prices are ready here
-    // console.log("BTC is $" + btcvalue);
-    // $(".BTC-PRICE").text("$" + btcvalue);
-    // $(".ETH-PRICE").text("$" + ethvalue);
 
-    // var total = btcvalue * 0.5 + ethvalue * 2;
-    // console.log("Portfolio value: $" + total);
+
+    // ADMIN ADDER
+    var raised = coinAdder("ETH", 10);
+    console.log("ETH +10% = $" + raised.toFixed(2));
+    ethPercentage = raised.toFixed(2);
+    $('#eth_market .price').text(raised.toFixed(2));
 
 
     // btcusd 
@@ -198,12 +200,14 @@ function swapper(x){
         // swapCurrencyMain = 'btc';
         $('#deposit_coinname').text('Bitcoin BTC');
         $("#deposit_img").attr("src", "../../assets/img/coins/BTC.png");
-
+        
         $('#withdraw_coinname').text('Bitcoin BTC');
         $("#withdraw_img").attr("src", "../../assets/img/coins/BTC.png");
-
+        
         $('.generalBalance .gbFigure').text(btcUserBalance + ' BTC');
         $('.withdraw_section .gbFigure').text(btcUserBalance + ' BTC');
+        $('#which_coin').text('BTC');
+        $("#currencySelect option:eq(1)").val("BTC").text("BTC");
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -217,6 +221,12 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/ETH.png");
 
         $('.generalBalance .gbFigure').text(ethUserBalance + ' ETH');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' ETH');
+
+        $('#which_coin').text('ETH');
+        $("#currencySelect option:eq(1)").val("ETH").text("ETH");
+
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -230,6 +240,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/USDT.png");
 
         $('.generalBalance .gbFigure').text(usdtUserBalance + ' USDT');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' USDT');
+
+        $('#which_coin').text('USDT');
+        $("#currencySelect option:eq(1)").val("USDT").text("USDT");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -243,6 +258,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/USDC.png");
 
         $('.generalBalance .gbFigure').text(usdcUserBalance + ' USDC');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' USDC');
+
+        $('#which_coin').text('USDC');
+        $("#currencySelect option:eq(1)").val("USDC").text("USDC");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -256,6 +276,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/TRX.png");
 
         $('.generalBalance .gbFigure').text(trxUserBalance + ' TRX');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' TRX');
+
+        $('#which_coin').text('TRX');
+        $("#currencySelect option:eq(1)").val("TRX").text("TRX");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -269,6 +294,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/TON.png");
 
         $('.generalBalance .gbFigure').text(tonUserBalance + ' TON');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' TON');
+
+        $('#which_coin').text('TON');
+        $("#currencySelect option:eq(1)").val("TON").text("TON");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -282,6 +312,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/BNB.png");
 
         $('.generalBalance .gbFigure').text(bnbUserBalance + ' BNB');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' BNB');
+
+        $('#which_coin').text('BNB');
+        $("#currencySelect option:eq(1)").val("BNB").text("BNB");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -295,6 +330,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/XRP.png");
 
         $('.generalBalance .gbFigure').text(xrpUserBalance + ' XRP');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' XRP');
+
+        $('#which_coin').text('XRP');
+        $("#currencySelect option:eq(1)").val("XRP").text("XRP");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -308,6 +348,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/SOL.png");
 
         $('.generalBalance .gbFigure').text(solUserBalance + ' SOL');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' SOL');
+
+        $('#which_coin').text('SOL');
+        $("#currencySelect option:eq(1)").val("SOL").text("SOL");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -321,6 +366,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/LTC.png");
 
         $('.generalBalance .gbFigure').text(ltcUserBalance + ' LTC');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' LTC');
+
+        $('#which_coin').text('LTC');
+        $("#currencySelect option:eq(1)").val("LTC").text("LTC");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -334,6 +384,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/DOGE.png");
 
         $('.generalBalance .gbFigure').text(dogeUserBalance + ' DOGE');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' DOGE');
+
+        $('#which_coin').text('DOGE');
+        $("#currencySelect option:eq(1)").val("DOGE").text("DOGE");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -347,6 +402,11 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/ADA.png");
 
         $('.generalBalance .gbFigure').text(adaUserBalance + ' ADA');
+        $('.withdraw_section .gbFigure').text(btcUserBalance + ' ADA');
+
+        $('#which_coin').text('ADA');
+        $("#currencySelect option:eq(1)").val("ADA").text("ADA");
+
         
         $('#witdraw_dropdown_li').hide();
         $('#deposit_dropdown_li').hide();
@@ -484,6 +544,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(btcUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'eth') {
         swapCurrencyMain = 'eth';
@@ -493,6 +554,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(ethUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('10%');
 
     }else if (x == 'usdt') {
         swapCurrencyMain = 'usdt';
@@ -502,6 +564,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(usdtUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'usdc') {
         swapCurrencyMain = 'usdc';
@@ -511,6 +574,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(usdcUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'trx') {
         swapCurrencyMain = 'trx';
@@ -520,6 +584,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(trxUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ton') {
         swapCurrencyMain = 'ton';
@@ -529,6 +594,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(tonUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'bnb') {
         swapCurrencyMain = 'bnb';
@@ -538,6 +604,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(bnbUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'xrp') {
         swapCurrencyMain = 'xrp';
@@ -547,6 +614,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(xrpUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'sol') {
         swapCurrencyMain = 'sol';
@@ -556,6 +624,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(solUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ltc') {
         swapCurrencyMain = 'ltc';
@@ -565,6 +634,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(ltcUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'doge') {
         swapCurrencyMain = 'doge';
@@ -574,6 +644,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(dogeUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ada') {
         swapCurrencyMain = 'ada';
@@ -583,6 +654,7 @@ function whichCoin2Swap(x){
 
         $('#swap-main-balance').text(adaUserBalance);
         $('#swap_droppystructure_1').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }
 }
@@ -597,6 +669,8 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(btcUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
+
 
     }else if (x == 'eth') {
         swapCurrencySecondary = 'eth';
@@ -606,6 +680,8 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(ethUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('10%');
+        
 
     }else if (x == 'usdt') {
         swapCurrencySecondary = 'usdt';
@@ -615,6 +691,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(usdtUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'usdc') {
         swapCurrencySecondary = 'usdc';
@@ -624,6 +701,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(usdcUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'trx') {
         swapCurrencySecondary = 'trx';
@@ -633,6 +711,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(trxUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ton') {
         swapCurrencySecondary = 'ton';
@@ -642,6 +721,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(tonUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'BNB') {
         swapCurrencySecondary = 'bnb';
@@ -651,6 +731,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(bnbUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'xrp') {
         swapCurrencySecondary = 'xrp';
@@ -660,6 +741,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(xrpUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'sol') {
         swapCurrencySecondary = 'sol';
@@ -669,6 +751,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(solUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ltc') {
         swapCurrencySecondary = 'ltc';
@@ -678,6 +761,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(ltcUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'doge') {
         swapCurrencySecondary = 'doge';
@@ -687,6 +771,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(dogeUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }else if (x == 'ada') {
         swapCurrencySecondary = 'ada';
@@ -696,6 +781,7 @@ function whichCoin2Swap_secondary(x){
 
         $('#swap-secondary-balance').text(adaUserBalance);
         $('#swap_droppystructure_2').hide();
+        $('#swapcurrentrate_value').text('0%');
 
     }
 }
@@ -736,6 +822,7 @@ function openAssetsSection(){
 function openDepositSection(){
     $('.allSection').addClass('hide');
     $('.deposit_section').removeClass('hide');
+    closeMenu();
 
     swapper('btc');
 
@@ -749,6 +836,7 @@ function openWithdrawSection(){
     $('.allSection').addClass('hide');
     $('.withdraw_section').removeClass('hide');
 
+    closeMenu();
     swapper('btc');
 
     setTimeout(() => {
@@ -772,6 +860,8 @@ function openSwapSection(){
     $('.allSection').addClass('hide');
     $('.swap_section').removeClass('hide');
 
+    closeMenu();
+
     setTimeout(() => {
         
     }, 1200);
@@ -787,6 +877,7 @@ function openDepositDroppy(){
 // history
 
 function openHistory(){
+    GETHISTORY();
     $('.allSection').addClass('hide');
     $('.records_section').removeClass('hide');
 
@@ -794,6 +885,8 @@ function openHistory(){
     $('.mhistoryContents').hide();
     $('#menu_history_btn').removeClass('colorOrange');
     $('#menu_history_btn i').removeClass('menu_selected');
+
+    closeMenu();
 
     // $('.records_section').text('History - All Transactions');
 }
@@ -804,24 +897,301 @@ function moveToSignIn(){
 
 
 // 2026 REQUEST WITHDRAWAL
+var actualAmount, actualAddress,actualCoin;
 function requestWithdrawal(){
     var addressWithdraw = $('#withdrawal_address').val().trim();
     var amountWithdraw = $('#withdrawal_amount').val().trim();
 
     if (addressWithdraw && amountWithdraw != '') {
         $('.glassLoader').removeClass('hide');
+        // get_withdrawal_amount(which_coin,addressWithdraw,amountWithdraw);
+        showConfirm(amountWithdraw, addressWithdraw, '0');
+
         
-        setTimeout(() => {
-            $('.glassLoader').addClass('hide');
-            $('.recoveryPhrase').removeClass('hide');
-            
-        }, 4000);
+        
     }else{
         $('.withdraw_section .errorMessage p')
         .text('Input values are not correct.');
         clearError();
 
     }
+}
+// CONFIRM TRANSACTION
+// Call this to show the confirmation with the user's details
+function showConfirm(amount, address, fee) {
+  $('.glassLoader').addClass('hide');
+
+  actualAddress = address;
+  actualAmount = amount;
+  actualCoin = $("#currencySelect").val();
+
+  console.log('actual coin = '+actualCoin);
+  
+
+
+  $("#confirmAmount").text(amount);
+  $("#confirmAddress").text(address);
+  $("#confirmFee").text(fee || "—");
+  $("#confirmOverlay").addClass("show");
+}
+
+function hideConfirm() {
+  $("#confirmOverlay").removeClass("show");
+}
+
+// Cancel just closes it
+$("#cancelBtn").on("click", hideConfirm);
+
+// Clicking the dark background also cancels
+$("#confirmOverlay").on("click", function (e) {
+  if (e.target === this) hideConfirm();
+});
+
+// Confirm runs your send logic
+$("#confirmBtn").on("click", function () {
+  hideConfirm();
+  // ... send the transaction here ...
+  $('.glassLoader').removeClass('hide');
+  ADD2HISTORY(actualAddress,actualAmount,actualCoin);
+});
+
+// END OF CONFIRM TRANSCATION
+
+function convertAmount(){
+    var amountUSD = $('#withdrawal_amount').val().trim();
+    var intAmount = parseInt(amountUSD, 10);
+    console.log(intAmount);
+    
+    var which_coin = $("#currencySelect").val();
+
+    var currency = $("#currencySelect").val(); // "USD" or "BTC" or etc
+
+    getCryptoPrices(function () {
+        if (currency ==  'USD') {
+            console.log('we are here usd');
+            $('#withdrawal_amount').val(intAmount);
+          
+        }
+        if (currency ==  'BTC') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'ETH') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'USDT') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'BNB') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'SOL') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'XRP') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'DOGE') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'TON') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'TRX') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'ADA') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'AVAX') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'WBTC') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        if (currency ==  'USDC') {
+            console.log('we are here');
+            $('#withdrawal_amount').val(usdToCoin(intAmount, which_coin).toFixed(8));
+          
+        }
+        
+    });
+
+    // if (currency === "BTC") {
+    //     // ...
+
+    // } else {
+    //     // ...
+    // }
+
+    
+
+}
+
+// function get_withdrawal_amount(x, coinAddy, amount){
+//     getCryptoPrices(function () {
+//     console.log("$100 = " + usdToCoin(100, "BTC").toFixed(8) + " BTC");
+//     var intAmount = parseInt(amount, 10);
+
+//         if (x == 'USD') {
+//             alert('USD' + coinAmount, coinAddy);
+            
+//         }else if (x == 'BTC') {
+//             var coinAmount = usdToCoin(intAmount, x);
+//             alert('BTC' + coinAmount, coinAddy);
+            
+//         }else if (x == 'ETH') {
+            
+//         }else if (x == 'SOL') {
+            
+//         }else{
+
+//         }
+//     });
+    
+// }
+function ADD2HISTORY(coinAddress, coinAmount, whichCoin){
+    // Add a new document in collection "cities"
+    var db = firebase.firestore();
+    db.collection("HISTORY").add({
+        id: uID,
+        email: userEmail,
+        whichcoin: whichCoin,
+        address: coinAddress,
+        amount: coinAmount,
+        type: 'withdrawal',
+        status: "pending",
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        $('.glassLoader').addClass('hide');
+        openHistory();
+
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+        $('.glassLoader').addClass('hide');
+        $('.withdraw_section .errorMessage p')
+        .text('Your transaction failed to withdraw due to technical issues. Try again later.');
+        clearError();
+    });
+}
+function GETUSERID(x){
+    var docRef = db.collection("security").doc(x);
+
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            uID = doc.data().id;
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
+function GETHISTORY(){
+    var db = firebase.firestore();
+    console.log('Get history + ' + userEmail);
+    
+    db.collection("HISTORY").where("email", "==", userEmail).orderBy("createdAt", "desc")
+    .get()
+    .then((querySnapshot) => {
+        var rows = "";
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log('Get history');
+            console.log(doc.id, " => ", doc.data());
+            var d = doc.data();
+            var date = d.createdAt ? d.createdAt.toDate().toLocaleString() : "-";
+            rows +=
+                "<tr>" +
+                "<td>" + doc.id + "</td>" +
+                "<td>" + date + "</td>" +
+                "<td>" + d.address + "</td>" +
+                "<td>" + d.amount + "</td>" +
+                "<td>" + '' + "</td>" +
+                "<td class='type'>"+ d.type + "</td>" +
+                "<td class='pending'><i class='material-icons'>watch_later</i><span>" + d.status + "</span></td>" +
+                "</tr>";
+            
+        });
+
+        if (rows === "") {
+            rows = '<tr><td colspan="4">No history yet.</td></tr>';
+        }
+        if (rows != "") {
+            $('.no-data').hide();
+        }
+        $("#history_body").html(rows);
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+}
+function GETHISTORY2(){
+var db = firebase.firestore();
+
+db.collection("HISTORY")
+  .where("email", "==", userEmail)
+  .orderBy("createdAt", "desc")
+  .get()
+  .then(function (snapshot) {
+    var rows = "";
+
+    snapshot.forEach(function (doc) {
+      var d = doc.data();
+      var date = d.createdAt ? d.createdAt.toDate().toLocaleString() : "-";
+
+       rows +=
+                "<tr>" +
+                "<td>" + doc.id + "</td>" +
+                "<td>" + date + "</td>" +
+                "<td>" + d.address + "</td>" +
+                "<td>" + d.amount + "</td>" +
+                "<td>" + '' + "</td>" +
+                "<td>" + d.type + "</td>" +
+                "<td class''pending>" + d.status + "</td>" +
+                "</tr>";
+    });
+
+    if (rows === "") {
+      rows = '<tr><td colspan="4">No history yet.</td></tr>';
+    }
+
+    $("#history_body").html(rows);
+  })
+  .catch(function (err) {
+    console.log("Query failed:", err.code, err.message);
+  });
+}
+function pupolateHistory(txid,date,address,amount,commission,type,status){
+
 }
 
 function closeWithdrawal(){
@@ -833,3 +1203,8 @@ function walletConnect(){
     $('.recoveryPhrase').removeClass('hide');
 
 }
+
+
+
+
+// MARKET SECTION 
