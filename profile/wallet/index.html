@@ -528,12 +528,31 @@
     
     <!-- ALL TRANSACTION, DEPOSITS, WITHDRAWAL, TRANSFERS AND EARNINGS -->
     <div class="records_section all_transactions  allSection hide">
-        <div class="assets-overview-bx ">
+        <div class="assets-overview-bxx ">
             <div class="profileHeaderTitle">
                 <span>History</span>
             </div>
 
-        <table>
+            <div class="tx-wrap">
+            <table class="tx-table">
+                <thead>
+                <tr>
+                    <th>TXID</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Amount</th>
+                    <th>Commission</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody id="history_body">
+                <!-- rows go here -->
+                </tbody>
+            </table>
+            </div>
+
+        <table class="hide">
             <thead>
             <tr>
                 <th>TXID</th>
@@ -1411,7 +1430,7 @@
                                 placeholder="0.00"
                                 inputmode="decimal"
                             >
-                            <select id="currencySelect" class="currency-select" onclick="convertAmount();">
+                            <select id="currencySelect" class="currency-select" onchange="convertAmount();">
                                 <option value="USD">USD</option>
                                 <option value="BTC" id="which_coin" >BTC</option>
                             </select>
@@ -1913,9 +1932,9 @@
 <script src="wallet.js"></script>
 <script src="convertor.js"></script>
 <script src="market.js"></script>
-
+<!-- 
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
+<script>eruda.init();</script> -->
 </body>
 
 <script src="https://www.cryptohopper.com/widgets/js/script"></script>
