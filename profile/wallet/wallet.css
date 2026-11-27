@@ -344,7 +344,8 @@ and (max-width: 9999999999999px){
 .tbl_overall{
     display: inline-block;
     width: 10%;
-    width: 87px;
+    /* width: 87px; */
+    width: 96px;
 }
 .tbl_main{
     display: inline-block;
@@ -604,7 +605,9 @@ and (max-width: 9999999999999px){
   transition: border-color 0.2s, box-shadow 0.2s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-
+.insufficientBalance{
+    border: 1px solid red;
+}
 .amount-field:focus-within {
   border-color: #f7931a;
   box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
