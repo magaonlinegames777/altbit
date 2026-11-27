@@ -1,5 +1,6 @@
 
 var userSignedIn;
+var userEmail;
 
 $(document).ready(function() {
   // Your code here
@@ -44,6 +45,10 @@ function checkIfUserIsActive(x){
     docRef.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data from sess:", doc.data());
+            userEmail = doc.data().email;
+            console.log('email man: '+ userEmail);
+            
+            GETUSERID(userEmail);
             // show profile
             // UPDATE
             // updateIpl(doc.data().email);
