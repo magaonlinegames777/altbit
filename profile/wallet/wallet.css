@@ -251,7 +251,7 @@ and (max-width: 9999999999999px){
     padding: 10px 0;
 }
 .profileHeaderTitle span{
-    width: 90%;
+    width: 95%;
     margin: auto;
     display: block;
 }
@@ -921,7 +921,7 @@ and (max-width: 9999999999999px){
         width: 30%;
     }
     .profileHeaderTitle {
-        text-align: center;
+        /* text-align: center; */
     }
 }
 @media screen and (max-width: 605px) {
@@ -1217,7 +1217,7 @@ font-size: 13px;
 
 
 /* history data records */
-.records_section table{
+/* .records_section table{
         width: 90%;
         margin: auto;
         border-radius: 3px;
@@ -1225,7 +1225,79 @@ font-size: 13px;
 }
 .records_section thead{
     background-color: #cdcdcd;
+} */
+
+.assets-overview-bxx{
+    margin-left: 10px;
 }
+.tx-wrap {
+  background: #ffffff;
+  border: 1px solid #e6e8eb;
+  /* border-radius: 12px; */
+  overflow-x: auto;                   /* makes it responsive: scroll on small screens */
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.tx-table {
+  width: 100%;
+  min-width: 760px;                   /* keeps columns readable; scrolls below this */
+  border-collapse: collapse;
+}
+
+.tx-table thead th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #6b7280;
+  background: #f9fafb;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e6e8eb;
+  white-space: nowrap;
+}
+
+.tx-table tbody td {
+  font-size: 14px;
+  color: #1f2430;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f0f1f3;
+  white-space: nowrap;
+}
+
+.tx-table tbody tr:last-child td { border-bottom: none; }
+.tx-table tbody tr:hover { background: #fafbfc; }
+
+/* TXID and address are long: let them shorten nicely */
+.tx-table .txid,
+.tx-table .address {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: #4b5563;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* colored status + type pills */
+.pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.status-completed { background: #e7f6ec; color: #1a7f3c; }
+.status-pending   { background: #fff4e5; color: #b26a00; }
+.status-failed    { background: #fdeaea; color: #c0392b; }
+.type-in  { color: #1a7f3c; font-weight: 600; }
+.type-out { color: #c0392b; font-weight: 600; }
+
+
+
+/* ******* */
 .records_section .type{
     text-transform: uppercase;
 }
@@ -1233,11 +1305,10 @@ font-size: 13px;
     font-size: 9px;
     position: absolute;
     left: 6px;
-    top: 11px;
+    top: 20px;
 }
 .records_section .pending span{
-    font-size: 10px;
-    /* background: red; */
+    font-size: 13px;
     position: relative;
     left: 5px;
 }
@@ -1374,4 +1445,12 @@ font-size: 13px;
   margin: 18px 0 0;
   font-size: 12px;
   color: #6e7681;
+}
+
+
+
+
+/* all nation  */
+input, select, textarea {
+  font-size: 16px;
 }
