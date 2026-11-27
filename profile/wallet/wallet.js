@@ -999,7 +999,7 @@ function GETUSERID(x){
 
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            console.log("USER data:", doc.data());
             uID = doc.data().id;
             GETBALANCES(uID);
         } else {
