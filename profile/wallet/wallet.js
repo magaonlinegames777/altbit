@@ -114,7 +114,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/ETH.png");
 
         $('.generalBalance .gbFigure').text(ethUserBalance + ' ETH');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' ETH');
+        $('.withdraw_section .gbFigure').text(ethUserBalance + ' ETH');
 
         $('#which_coin').text('ETH');
         $("#currencySelect option:eq(1)").val("ETH").text("ETH");
@@ -133,7 +133,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/USDT.png");
 
         $('.generalBalance .gbFigure').text(usdtUserBalance + ' USDT');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' USDT');
+        $('.withdraw_section .gbFigure').text(usdtUserBalance + ' USDT');
 
         $('#which_coin').text('USDT');
         $("#currencySelect option:eq(1)").val("USDT").text("USDT");
@@ -151,7 +151,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/USDC.png");
 
         $('.generalBalance .gbFigure').text(usdcUserBalance + ' USDC');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' USDC');
+        $('.withdraw_section .gbFigure').text(usdcUserBalance + ' USDC');
 
         $('#which_coin').text('USDC');
         $("#currencySelect option:eq(1)").val("USDC").text("USDC");
@@ -169,7 +169,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/TRX.png");
 
         $('.generalBalance .gbFigure').text(trxUserBalance + ' TRX');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' TRX');
+        $('.withdraw_section .gbFigure').text(trxUserBalance + ' TRX');
 
         $('#which_coin').text('TRX');
         $("#currencySelect option:eq(1)").val("TRX").text("TRX");
@@ -187,7 +187,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/TON.png");
 
         $('.generalBalance .gbFigure').text(tonUserBalance + ' TON');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' TON');
+        $('.withdraw_section .gbFigure').text(tonUserBalance + ' TON');
 
         $('#which_coin').text('TON');
         $("#currencySelect option:eq(1)").val("TON").text("TON");
@@ -205,7 +205,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/BNB.png");
 
         $('.generalBalance .gbFigure').text(bnbUserBalance + ' BNB');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' BNB');
+        $('.withdraw_section .gbFigure').text(bnbUserBalance + ' BNB');
 
         $('#which_coin').text('BNB');
         $("#currencySelect option:eq(1)").val("BNB").text("BNB");
@@ -223,7 +223,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/XRP.png");
 
         $('.generalBalance .gbFigure').text(xrpUserBalance + ' XRP');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' XRP');
+        $('.withdraw_section .gbFigure').text(xrpUserBalance + ' XRP');
 
         $('#which_coin').text('XRP');
         $("#currencySelect option:eq(1)").val("XRP").text("XRP");
@@ -241,7 +241,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/SOL.png");
 
         $('.generalBalance .gbFigure').text(solUserBalance + ' SOL');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' SOL');
+        $('.withdraw_section .gbFigure').text(solUserBalance + ' SOL');
 
         $('#which_coin').text('SOL');
         $("#currencySelect option:eq(1)").val("SOL").text("SOL");
@@ -259,7 +259,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/LTC.png");
 
         $('.generalBalance .gbFigure').text(ltcUserBalance + ' LTC');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' LTC');
+        $('.withdraw_section .gbFigure').text(ltcUserBalance + ' LTC');
 
         $('#which_coin').text('LTC');
         $("#currencySelect option:eq(1)").val("LTC").text("LTC");
@@ -277,7 +277,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/DOGE.png");
 
         $('.generalBalance .gbFigure').text(dogeUserBalance + ' DOGE');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' DOGE');
+        $('.withdraw_section .gbFigure').text(dogeUserBalance + ' DOGE');
 
         $('#which_coin').text('DOGE');
         $("#currencySelect option:eq(1)").val("DOGE").text("DOGE");
@@ -295,7 +295,7 @@ function swapper(x){
         $("#withdraw_img").attr("src", "../../assets/img/coins/ADA.png");
 
         $('.generalBalance .gbFigure').text(adaUserBalance + ' ADA');
-        $('.withdraw_section .gbFigure').text(btcUserBalance + ' ADA');
+        $('.withdraw_section .gbFigure').text(adaUserBalance + ' ADA');
 
         $('#which_coin').text('ADA');
         $("#currencySelect option:eq(1)").val("ADA").text("ADA");
@@ -795,15 +795,19 @@ function moveToSignIn(){
 
 
 // 2026 REQUEST WITHDRAWAL
-var actualAmount, actualAddress,actualCoin;
+var actualAmount, actualAddress,actualCoin, balanceOfPerson;
 function requestWithdrawal(){
     var addressWithdraw = $('#withdrawal_address').val().trim();
+    actualAddress = addressWithdraw;
     var amountWithdraw = $('#withdrawal_amount').val().trim();
 
     if (addressWithdraw && amountWithdraw != '') {
         $('.glassLoader').removeClass('hide');
+        // check if balance for whichever coin selected is enough
+        checkBalances();
+
         // get_withdrawal_amount(which_coin,addressWithdraw,amountWithdraw);
-        showConfirm(amountWithdraw, addressWithdraw, '0');
+        // showConfirm(amountWithdraw, addressWithdraw, '0');
 
         
         
@@ -814,6 +818,381 @@ function requestWithdrawal(){
 
     }
 }
+
+// BALANCES CHECKER
+function checkBalances(){
+    $('.glassLoader').addClass('hide');
+    var which_coin = $("#currencySelect option:eq(1)").val();
+        actualCoin = which_coin;
+    var amountWithdraw = $('#withdrawal_amount').val().trim();
+    amountWithdraw = parseFloat(amountWithdraw);
+
+
+    var intAmount;
+
+    var currency = $("#currencySelect").val(); // "USD" or "BTC" or etc
+   
+    if (currency == 'USD') {
+        var withdrawAmountCOIN = usdToCoin(amountWithdraw,which_coin).toFixed(8);
+        if (which_coin == 'BTC') {
+            if (withdrawAmountCOIN > parseFloat(btcUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(btcUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(btcUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+
+            }
+        }
+        if (which_coin == 'ETH') {
+            if (withdrawAmountCOIN > parseFloat(ethUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(ethUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(ethUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'USDT') {
+            if (withdrawAmountCOIN > parseFloat(usdtUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(usdtUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(usdtUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'BNB') {
+            if (withdrawAmountCOIN > parseFloat(bnbUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(bnbUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(bnbUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'SOL') {
+            if (withdrawAmountCOIN > parseFloat(solUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(solUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(solUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'XRP') {
+            if (withdrawAmountCOIN > parseFloat(xrpUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(xrpUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(xrpUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'DOGE') {
+            if (withdrawAmountCOIN > parseFloat(dogeUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(dogeUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(dogeUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'TON') {
+            if (withdrawAmountCOIN > parseFloat(tonUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(tonUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(tonUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'TRX') {
+            if (withdrawAmountCOIN > parseFloat(trxUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(trxUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(trxUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'ADA') {
+            if (withdrawAmountCOIN > parseFloat(adaUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(adaUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(adaUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'AVAX') {
+            if (withdrawAmountCOIN > parseFloat(avaxUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(avaxUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(avaxUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+        if (which_coin == 'WBTC') {
+            if (withdrawAmountCOIN > parseFloat(wbtcUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+                intAmount = parseFloat(wbtcUserBalance);
+                // alert('Amount to withdraw is greater '+ withdrawAmountCOIN + '> '+ intAmount);
+            }else{
+                var resultBalance = parseFloat(wbtcUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+                
+                // alert('Amount to withdraw is lesser '+ withdrawAmountCOIN + '<< Balance -> '+ intAmount);
+                //show confirm, allow withdrawal , updatebalance
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }
+        }
+    }else{
+        // which coin to withdraw
+        var withdrawAmountCOIN = amountWithdraw;
+        if (which_coin == 'BTC') {
+            if (withdrawAmountCOIN > parseFloat(btcUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(btcUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'ETH') {
+            if (withdrawAmountCOIN > parseFloat(ethUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(ethUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'USDT') {
+            if (withdrawAmountCOIN > parseFloat(usdtUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(usdtUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'BNB') {
+            if (withdrawAmountCOIN > parseFloat(bnbUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(bnbUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'SOL') {
+            if (withdrawAmountCOIN > parseFloat(solUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(solUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'XRP') {
+            if (withdrawAmountCOIN > parseFloat(xrpUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(xrpUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'DOGE') {
+            if (withdrawAmountCOIN > parseFloat(dogeUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(dogeUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'TON') {
+            if (withdrawAmountCOIN > parseFloat(tonUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(tonUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'TRX') {
+            if (withdrawAmountCOIN > parseFloat(trxUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(trxUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'ADA') {
+            if (withdrawAmountCOIN > parseFloat(adaUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(adaUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'AVAX') {
+            if (withdrawAmountCOIN > parseFloat(avaxUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(avaxUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'WBTC') {
+            if (withdrawAmountCOIN > parseFloat(wbtcUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(wbtcUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+        if (which_coin == 'USDC') {
+            if (withdrawAmountCOIN > parseFloat(usdcUserBalance)) {
+                // block withdrawal
+                blockwithdrawal();
+            }else{
+                var resultBalance = parseFloat(usdcUserBalance) - withdrawAmountCOIN;
+                balanceOfPerson = resultBalance;
+               
+                showConfirm(withdrawAmountCOIN,actualAddress,'0');
+            }   
+        }
+
+    }
+
+}
+function blockwithdrawal(){
+    $('#withdraw_section .errorMessage p').text('You have insufficient balance to complete this withdrawal');
+    $('#withdraw_section .amount-field').addClass('insufficientBalance');
+    clearError();
+    setTimeout(() => {
+    $('#withdraw_section .amount-field').removeClass('insufficientBalance');
+    }, 8888);
+}
+function ALLOWWITHDRAWAL(fieldName, valueString) {
+  var db = firebase.firestore();
+  var fldName = fieldName.trim().toLowerCase() + "-Balance";
+  
+  var updateData = {};
+  updateData[fldName] = balanceOfPerson;   // sets key to "btc-Balance", etc.
+
+  db.collection("balances").doc(uID).update(updateData)
+    .then(function () {
+      console.log("balance updated");
+      ADD2HISTORY(actualAddress,actualAmount,actualCoin);
+    })
+    .catch(function (err) {
+      console.log("Update failed:", err.code, err.message);
+      $('.glassLoader').addClass('hide');
+
+    });
+}
+
+
 // CONFIRM TRANSACTION
 // Call this to show the confirmation with the user's details
 function showConfirm(amount, address, fee) {
@@ -821,7 +1200,8 @@ function showConfirm(amount, address, fee) {
 
   actualAddress = address;
   actualAmount = amount;
-  actualCoin = $("#currencySelect").val();
+  //actualCoin = $("#currenwcySelect").val();
+
 
   console.log('actual coin = '+actualCoin);
   
@@ -845,12 +1225,14 @@ $("#confirmOverlay").on("click", function (e) {
   if (e.target === this) hideConfirm();
 });
 
-// Confirm runs your send logic
+// CONFIRM TRANSACTION
 $("#confirmBtn").on("click", function () {
   hideConfirm();
-  // ... send the transaction here ...
   $('.glassLoader').removeClass('hide');
-  ADD2HISTORY(actualAddress,actualAmount,actualCoin);
+  // ... send the transaction here ...
+ 
+  ALLOWWITHDRAWAL(actualCoin,actualAmount);
+//   ADD2HISTORY(actualAddress,actualAmount,actualCoin);
 });
 
 // END OF CONFIRM TRANSCATION
@@ -972,8 +1354,7 @@ function convertAmount(){
     
 // }
 function ADD2HISTORY(coinAddress, coinAmount, whichCoin){
-    // Add a new document in collection "cities"
-    alert(userEmail);
+    // Add a new document 
     var db = firebase.firestore();
     db.collection("HISTORY").add({
         id: uID,
@@ -1056,13 +1437,13 @@ function populateBalances(){
     $('.BTC-BALANCE').text(btcUserBalance);
     var btcUSDValue = btcUserBalance * btcvalue;
     btcUSDValue = btcUSDValue.toFixed(2);
-    $('.BTCUSD-BALANCE').text(btcUSDValue+" $");
+    $('.BTCUSD-BALANCE').text(formatDollar(btcUSDValue));
 
     //ethusd 
-    $('.ETH-BALANCE').text(ethUserBalance);
+    $('.ETH-BALANCE').text(ethUserBalance.toFixed(8));
     var ethUSDValue = ethUserBalance * ethvalue;
     ethUSDValue = ethUSDValue.toFixed(2);
-    $('.ETHUSD-BALANCE').text(ethUSDValue+" $");
+    $('.ETHUSD-BALANCE').text(formatDollar(ethUSDValue));
 
     //usdtusd 
     $('.USDT-BALANCE').text(usdtUserBalance);
@@ -1132,7 +1513,6 @@ function populateBalances(){
 
 }
 function showBalances(){
-    alert(btcUserBalance);
   getCryptoPrices(function () {
 
 
@@ -1159,6 +1539,7 @@ function GETHISTORY(){
             // doc.data() is never undefined for query doc snapshots
             console.log('Get history');
             console.log(doc.id, " => ", doc.data());
+            GETBALANCES(doc.data().id);
             var d = doc.data();
             var date = d.createdAt ? d.createdAt.toDate().toLocaleString() : "-";
             rows +=
@@ -1239,4 +1620,7 @@ function walletConnect(){
 
 
 
-// MARKET SECTION 
+// format dollar 
+
+
+
