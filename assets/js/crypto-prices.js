@@ -5,6 +5,13 @@
 var btcvalue, ethvalue, usdtvalue, bnbvalue, solvalue, xrpvalue,
     dogevalue, tonvalue, trxvalue, adavalue, avaxvalue, wbtcvalue;
 
+var btcUserBalance, ethUserBalance, usdtUserBalance, usdcUserBalance, trxUserBalance
+    , tonUserBalance ,bnbUserBalance, xrpUserBalance, solUserBalance, ltcUserBalance
+    , dogeUserBalance, adaUserBalance, avaxUserBalance, wbtcUserBalance;
+
+var ethPercentage;
+
+
 function getCryptoPrices(callback) {
   // CoinGecko id -> name of the variable to fill
   var coins = {
@@ -63,4 +70,12 @@ function usdToCoin(usdAmount, coin) {
   var price = window[coin.toLowerCase() + "value"];
   if (!price) return null; // price not loaded yet, or unknown coin
   return usdAmount / price;
+}
+
+
+function formatDollar(n) {
+  return Number(n).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }) + " $";
 }
