@@ -779,7 +779,12 @@ function openHistory(){
     $('#menu_history_btn').removeClass('colorOrange');
     $('#menu_history_btn i').removeClass('menu_selected');
 
+    if (window.matchMedia("(max-width: 1207px)").matches) {
+    // screen is 1207px wide or less — do something
     closeMenu();
+    } else {
+    // wider than 1207px
+    }
 
     // $('.records_section').text('History - All Transactions');
 }
