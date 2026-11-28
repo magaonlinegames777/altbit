@@ -1434,7 +1434,7 @@ function GETBALANCES(x){
 }
 function populateBalances(){
     // btcusd      
-    $('.BTC-BALANCE').text(btcUserBalance);
+    $('.BTC-BALANCE').text(btcUserBalance.toFixed(8));
     var btcUSDValue = btcUserBalance * btcvalue;
     btcUSDValue = btcUSDValue.toFixed(2);
     $('.BTCUSD-BALANCE').text(formatDollar(btcUSDValue));
