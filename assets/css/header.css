@@ -670,3 +670,11 @@ footer #logoimg {
     font-size: 13px;
     text-align: center;
 }
+
+
+
+
+/* netlif */
+#nl-badge{
+    display: none;
+}
